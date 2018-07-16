@@ -1,0 +1,1 @@
+# alfred--ultimate-currency-converter
