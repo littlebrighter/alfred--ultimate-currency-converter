@@ -1,0 +1,44 @@
+name: add alfredworkflow file to release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  
+  add-alfredworkflow-file:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+     
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check-out Repository
+        uses: actions/checkout@v2
+
+      # Setting an environment variable: echo "{name}={value}" >> $GITHUB_ENV
+      - name: Set Environment Variables
+        id: set_env_vars
+        run: |
+          cd $GITHUB_WORKSPACE/.little-brighter-tools
+          echo "LB_VERSION=$(/usr/bin/php get-version.php)" >> $GITHUB_ENV
+          echo "LB_NAME=$(/usr/bin/php get-name.php)" >> $GITHUB_ENV
+          
+      #- name: Check Parameters    
+      #  run: |
+      #    echo $LB_VERSION
+      #    echo $LB_NAME
+        
+      - name: Create zip file
+        run: |
+          cd $GITHUB_WORKSPACE
+          /usr/bin/zip -r "$LB_NAME $LB_VERSION.alfredworkflow" ./*
+          touch "eriks test.file"
+          
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ env.LB_NAME }} ${{ env.LB_VERSION }}
+          files: ${{ env.LB_NAME }} ${{ env.LB_VERSION }}.alfredworkflow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
