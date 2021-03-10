@@ -1,4 +1,4 @@
-# Alfred Workflow for converting currencies with data from currencyconverterapi.com
+# Alfred 2 Workflow for converting currencies with data from currencyconverterapi.com
 
 ## Preferences
 
