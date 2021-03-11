@@ -46,14 +46,25 @@ class e4WorkflowDoConvert extends e4WorkflowCommands {
       else {
         $tmpResponse = new e4QuerySend($this->app, $tmpAmount, $tmpFrom[0], $tmpTo[0]);
         if ($tmpResponse->sendRequest()) {
+
+          $dec_point = '.';
+          $thousands_sep = ',';
+          $language = 'en';
+
+          if (isset($_ENV['lb_language']) and ($_ENV['lb_language'] == 'de')) {
+            $language = 'de';
+            $dec_point = ',';
+            $thousands_sep = '.';
+          }
+
           $out[] = array(
             'uid' => 'none',
-            'arg' => $tmpResponse->getToAmount(),
+            'arg' => ($language == 'de' ? str_replace('.', $dec_point, $tmpResponse->getToAmount()) : $tmpResponse->getToAmount()),
             'title' => implode(' ', array(
-              number_format($tmpResponse->getFromAmount(), e4Currency::currencyDecimals($tmpResponse->getFromCurrency()), '.', ','),
+              number_format($tmpResponse->getFromAmount(), e4Currency::currencyDecimals($tmpResponse->getFromCurrency()), $dec_point, $thousands_sep),
               $tmpResponse->getFromCurrency(),
               '→',
-              number_format($tmpResponse->getToAmount(), e4Currency::currencyDecimals($tmpResponse->getToCurrency()), '.', ','),
+              number_format($tmpResponse->getToAmount(), e4Currency::currencyDecimals($tmpResponse->getToCurrency()), $dec_point, $thousands_sep),
               $tmpResponse->getToCurrency()
             )),
             'subtitle' => implode(' ', array(

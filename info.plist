@@ -376,13 +376,16 @@
 	<dict>
 		<key>lb_freecurrencyconverter_api_key</key>
 		<string></string>
+		<key>lb_language</key>
+		<string></string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>lb_freecurrencyconverter_api_key</string>
+		<string>lb_language</string>
 	</array>
 	<key>version</key>
-	<string>1.0.2</string>
+	<string>1.0.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--currency-converter</string>
 </dict>
