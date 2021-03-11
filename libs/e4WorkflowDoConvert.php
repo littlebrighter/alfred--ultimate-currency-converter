@@ -50,10 +50,10 @@ class e4WorkflowDoConvert extends e4WorkflowCommands {
             'uid' => 'none',
             'arg' => $tmpResponse->getToAmount(),
             'title' => implode(' ', array(
-              number_format($tmpResponse->getFromAmount(), 2, '.', ','),
+              number_format($tmpResponse->getFromAmount(), e4Currency::currencyDecimals($tmpResponse->getFromCurrency()), '.', ','),
               $tmpResponse->getFromCurrency(),
               '→',
-              number_format($tmpResponse->getToAmount(), 2, '.', ','),
+              number_format($tmpResponse->getToAmount(), e4Currency::currencyDecimals($tmpResponse->getToCurrency()), '.', ','),
               $tmpResponse->getToCurrency()
             )),
             'subtitle' => implode(' ', array(

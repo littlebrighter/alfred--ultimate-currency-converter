@@ -411,6 +411,39 @@ class e4Currency {
     'ZWL' => "\u{1F1FF}\u{1F1FC}"
   );
 
+  // Standard-Digits = 2
+  static $specialDigits = array(
+
+    'BIF' => 0,
+    'XOF' => 0,
+    'XAF' => 0,
+    'XPF' => 0,
+    'CVE' => 0,
+    'CLP' => 0,
+    'KMF' => 0,
+    'DJF' => 0,
+    'GNF' => 0,
+    'ISK' => 0,
+    'JPY' => 0,
+    'PYG' => 0,
+    'RWF' => 0,
+    'KRW' => 0,
+    'UGX' => 0,
+    'VUV' => 0,
+    'VND' => 0,
+
+    'MGA' => 1,
+
+    'BHD' => 3,
+    'IQD' => 3,
+    'JOD' => 3,
+    'KWD' => 3,
+    'LYD' => 3,
+    'OMR' => 3,
+    'TND' => 3
+
+  );
+
   static function isValidSymbol($symbol) {
     $symbol = mb_strtolower(trim($symbol), 'UTF-8');
     return self::$validSymbols[$symbol] ?: false;
@@ -439,6 +472,15 @@ class e4Currency {
   static function currencyFlag($currency) {
     return self::$emojiFlags[$currency] ?: '';
   }
+
+  static function currencyDecimals($currency) {
+    $num_decimals = 2;
+    if (array_key_exists($currency, self::$specialDigits)) {
+      $num_decimals = self::$specialDigits[$currency];
+    }
+    return $num_decimals;
+  }
+
 
 }
 
