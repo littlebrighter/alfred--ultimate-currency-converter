@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git restore --staged info.plist
+
+php little-brighter/tools/alfred-variablesdontexport.php --clean
+res=$?
+
+git add info.plist
+
+exit $res

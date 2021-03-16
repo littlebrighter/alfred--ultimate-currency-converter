@@ -1,0 +1,5 @@
+#!/bin/bash
+
+php little-brighter/tools/alfred-variablesdontexport.php --restore
+res=$?
+exit $res

@@ -24,8 +24,11 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/little-brighter/tools
           echo "LB_VERSION=$(/usr/bin/php get-version.php)" >> $GITHUB_ENV
-          echo $LB_VERSION
           echo "LB_NAME=$(/usr/bin/php get-name.php)" >> $GITHUB_ENV
+
+      - name: Check Parameters
+        run: |
+          echo $LB_VERSION
           echo $LB_NAME
 
       # Create zip file, exclude folder "little-brighter"
