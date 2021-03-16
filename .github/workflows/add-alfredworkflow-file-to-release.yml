@@ -5,39 +5,46 @@ on:
     types: [created]
 
 jobs:
-  
+
   add-alfredworkflow-file:
-    
+
     runs-on: ubuntu-latest
 
     steps:
-     
+
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check-out Repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       # Setting an environment variable: echo "{name}={value}" >> $GITHUB_ENV
       - name: Set Environment Variables
         id: set_env_vars
         run: |
-          cd $GITHUB_WORKSPACE/.little-brighter-tools
+          cd $GITHUB_WORKSPACE/little-brighter/tools
           echo "LB_VERSION=$(/usr/bin/php get-version.php)" >> $GITHUB_ENV
+          echo $LB_VERSION
           echo "LB_NAME=$(/usr/bin/php get-name.php)" >> $GITHUB_ENV
-          
-      #- name: Check Parameters    
-      #  run: |
-      #    echo $LB_VERSION
-      #    echo $LB_NAME
-        
+          echo $LB_NAME
+
+      # Create zip file, exclude folder "little-brighter"
       - name: Create zip file
         run: |
           cd $GITHUB_WORKSPACE
-          /usr/bin/zip -r "$LB_NAME $LB_VERSION.alfredworkflow" ./*
-          touch "eriks test.file"
-          
+          /usr/bin/zip -r "$LB_NAME $LB_VERSION.alfredworkflow" ./* -x "little-brighter/*"
+
+      # Create release notes by listing all commit notes
+      - name: Create relase notes
+        run: |
+          git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --pretty=format:"%s" | sed 's/^/* /' | awk '!seen[$0]++' > little-brighter-changelog.md
+          cat little-brighter-changelog.md
+
+      # Updating GitHub release
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          body_path: little-brighter-changelog.md
           name: ${{ env.LB_NAME }} ${{ env.LB_VERSION }}
           files: ${{ env.LB_NAME }} ${{ env.LB_VERSION }}.alfredworkflow
         env:

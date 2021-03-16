@@ -183,8 +183,9 @@ class e4WorkflowApp {
 
     $cacheFileName = $this->cachePath.md5($url).'.cache';
 
-    if (file_exists($cacheFileName) && time()-filemtime($cacheFileName) < $ttl)
-    return gzuncompress(file_get_contents($cacheFileName));
+    if (file_exists($cacheFileName) && time()-filemtime($cacheFileName) < $ttl) {
+      return file_get_contents($cacheFileName);
+    }
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -193,10 +194,12 @@ class e4WorkflowApp {
     curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
     $response = curl_exec($ch);
 
-    if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200 || !$response)
-    $response = false;
-    else
-    file_put_contents($cacheFileName, gzcompress($response));
+    if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200 || !$response) {
+      $response = false;
+    }
+    else {
+      file_put_contents($cacheFileName, $response);
+    }
 
     curl_close($ch);
     return $response;
