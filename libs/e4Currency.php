@@ -156,7 +156,7 @@ class e4Currency {
     'INR' => 'Indian Rupee',
     'IQD' => 'Iraqi Dinar',
     'IRR' => 'Iranian Rial',
-    'ISK' => 'Icelandic Króna',
+    'ISK' => 'Icelandic Krona',
     'JEP' => 'Jersey Pound',
     'JMD' => 'Jamaican Dollar',
     'JOD' => 'Jordanian Dinar',

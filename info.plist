@@ -73,6 +73,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>6FAA9D33-6197-4A11-A578-806849E422AC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Little Brighter</string>
@@ -248,6 +261,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string>cur</string>
+				<key>leftcursor</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.showalfred</string>
+			<key>uid</key>
+			<string>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -370,6 +398,13 @@
 			<integer>600</integer>
 			<key>ypos</key>
 			<integer>80</integer>
+		</dict>
+		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>785</integer>
+			<key>ypos</key>
+			<integer>370</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
