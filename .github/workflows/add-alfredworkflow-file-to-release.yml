@@ -52,3 +52,8 @@ jobs:
           files: ${{ env.LB_NAME }} ${{ env.LB_VERSION }}.alfredworkflow
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Post version number to server
+      - name: Post version number
+        run: |
+          curl -L -X POST -d "repo=${{ github.event.repository.name }}" https://alfred.hellerarko.de/
