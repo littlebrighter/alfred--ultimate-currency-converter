@@ -12,7 +12,45 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4BF0521A-1187-480A-93C4-3C50DB86AC1E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>A2C1F654-E4BF-4D81-8BB2-3C158C8F8E66</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>A8C33E52-EE70-42AE-9382-3CE25F1887E3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>009D1F46-8846-44E9-A114-410D7CAC0335</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -86,6 +124,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>067585D0-D3EC-462E-9660-006407A51F3D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B04157B8-7BF9-4D82-89D4-2A47C439E32F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Little Brighter</string>
@@ -100,21 +164,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>ignoredynamicplaceholders</key>
-				<false/>
-				<key>transient</key>
-				<false/>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://github.com/littlebrighter/alfred--currency-converter/releases/latest</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>A8C33E52-EE70-42AE-9382-3CE25F1887E3</string>
+			<string>4BF0521A-1187-480A-93C4-3C50DB86AC1E</string>
 			<key>version</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -168,6 +232,78 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>--download-update</string>
+						<key>outputlabel</key>
+						<string></string>
+						<key>uid</key>
+						<string>A2C1F654-E4BF-4D81-8BB2-3C158C8F8E66</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>A8C33E52-EE70-42AE-9382-3CE25F1887E3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>script</key>
+				<string>php -f e4WorkflowApp.php -- "set from {query}" "save"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>567440A9-0F78-4C99-9E28-C6101B0723C9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -213,29 +349,6 @@
 			<string>49937CBC-15F2-40F2-869E-05389B3132B5</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>script</key>
-				<string>php -f e4WorkflowApp.php -- "set from {query}" "save"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>567440A9-0F78-4C99-9E28-C6101B0723C9</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -345,17 +458,192 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>php -f look-up.php -- "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>currency-select</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>currency-look-up</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>php -f look-up.php -- "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Look-up: currencies, countries, currency abbreviations, country abbreviations</string>
+				<key>title</key>
+				<string>Currency Converter: look-up</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>B04157B8-7BF9-4D82-89D4-2A47C439E32F</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>leftcursor</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.showalfred</string>
+			<key>uid</key>
+			<string>067585D0-D3EC-462E-9660-006407A51F3D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Workflow Update Available!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>009D1F46-8846-44E9-A114-410D7CAC0335</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>triggerid</key>
+				<string>update-available</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>30CF62DD-73F7-47C6-8F22-054281B664B7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>009D1F46-8846-44E9-A114-410D7CAC0335</key>
+		<dict>
+			<key>xpos</key>
+			<integer>335</integer>
+			<key>ypos</key>
+			<integer>810</integer>
+		</dict>
+		<key>067585D0-D3EC-462E-9660-006407A51F3D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>600</integer>
+			<key>ypos</key>
+			<integer>635</integer>
+		</dict>
 		<key>089E4F01-0962-4C51-A276-CC83795C7F7F</key>
 		<dict>
 			<key>xpos</key>
 			<integer>85</integer>
 			<key>ypos</key>
 			<integer>80</integer>
+		</dict>
+		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
+		<dict>
+			<key>note</key>
+			<string>Updater</string>
+			<key>xpos</key>
+			<integer>375</integer>
+			<key>ypos</key>
+			<integer>100</integer>
+		</dict>
+		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>175</integer>
+			<key>ypos</key>
+			<integer>810</integer>
 		</dict>
 		<key>4582263F-3BD2-4C8C-BE92-885558B2AB09</key>
 		<dict>
@@ -370,6 +658,13 @@
 			<integer>175</integer>
 			<key>ypos</key>
 			<integer>280</integer>
+		</dict>
+		<key>4BF0521A-1187-480A-93C4-3C50DB86AC1E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>600</integer>
+			<key>ypos</key>
+			<integer>35</integer>
 		</dict>
 		<key>567440A9-0F78-4C99-9E28-C6101B0723C9</key>
 		<dict>
@@ -397,7 +692,21 @@
 			<key>xpos</key>
 			<integer>600</integer>
 			<key>ypos</key>
-			<integer>80</integer>
+			<integer>175</integer>
+		</dict>
+		<key>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</key>
+		<dict>
+			<key>xpos</key>
+			<integer>375</integer>
+			<key>ypos</key>
+			<integer>605</integer>
+		</dict>
+		<key>B04157B8-7BF9-4D82-89D4-2A47C439E32F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>175</integer>
+			<key>ypos</key>
+			<integer>605</integer>
 		</dict>
 		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
 		<dict>
@@ -420,7 +729,7 @@
 		<string>lb_language</string>
 	</array>
 	<key>version</key>
-	<string>1.0.4</string>
+	<string>1.1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--currency-converter</string>
 </dict>

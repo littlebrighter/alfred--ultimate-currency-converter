@@ -8,6 +8,40 @@ function __autoload($className) {
 
 // ------------------------------------------------------------------------------------
 
+// check for update
+
+if (!file_exists($_ENV['alfred_workflow_cache'])) mkdir($_ENV['alfred_workflow_cache'], 0777, true);
+
+// if no previous update status available or old status is older than 24 h --> get new status
+$v = '';
+if ( (!file_exists($_ENV['alfred_workflow_cache'].'/update')) ||
+     ((time() - filemtime($_ENV['alfred_workflow_cache'].'/update')) > 60*60*24 ) ||
+     (file_get_contents($_ENV['alfred_workflow_cache'].'/update') == '') ) {
+  $v = @file_get_contents('https://alfred.hellerarko.de/?repo='.str_replace('littlebrighter.', '', $_ENV['alfred_workflow_bundleid']));
+  file_put_contents($_ENV['alfred_workflow_cache'].'/update', $v);
+}
+else {
+  $v = @file_get_contents($_ENV['alfred_workflow_cache'].'/update');
+}
+
+if (($v) && (version_compare($_ENV['alfred_workflow_version'], str_replace('v', '', $v)) == -1)) {
+
+  exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run trigger "update-available" in workflow "'.$_ENV['alfred_workflow_bundleid'].'" with argument "new workflow version is available ('.$v.') for '.$_ENV['alfred_workflow_name'].'"\'');
+
+  $result[0]['title'] = $_ENV['alfred_workflow_name'].': a new workflow version is available ('.$v.')';
+  $result[0]['subtitle'] = 'you are running v'.$_ENV['alfred_workflow_version'].' – select to open download page';
+  $result[0]['icon']['path'] = 'icon-update.png';
+  $result[0]['autocomplete'] = '--download-update';
+  $result[0]['arg'] = '--download-update';
+  $result[0]['valid'] = true;
+  echo '{"items": '.json_encode($result).'}';
+
+  exit;
+
+}
+
+// ------------------------------------------------------------------------------------
+
 // Loading application config
 $app = new e4WorkflowApp();
 echo $app->run($argv);
@@ -209,7 +243,7 @@ class e4WorkflowApp {
     $dp = opendir($this->cachePath);
     while ($name = readdir($dp))
     if (is_file($this->cachePath.$name) && time()-filemtime($this->cachePath.$name) > $this->ttl)
-    unlink($this->cachePath.$name);
+    if (preg_match('/cache$/', $name)) unlink($this->cachePath.$name);
     closedir($dp);
   }
 
@@ -252,7 +286,7 @@ abstract class e4WorkflowCommands {
     );
   }
 
-  public function  getCommandSuggestValue($row) {
+  public function getCommandSuggestValue($row) {
     return $this->inConfig[$row] ?: null;
   }
 
