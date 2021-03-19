@@ -150,6 +150,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Little Brighter</string>
@@ -196,7 +209,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
-				<string>cur</string>
+				<string>currency</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -225,7 +238,7 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>089E4F01-0962-4C51-A276-CC83795C7F7F</string>
+			<string>BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -275,6 +288,55 @@
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>A8C33E52-EE70-42AE-9382-3CE25F1887E3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>keyword</key>
+				<string>cur</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>php -f ./e4WorkflowApp.php -- "{query}" "default"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Try ‘12 €‘, ‘12 € to $‘ or ‘€‘ and convert your currency</string>
+				<key>title</key>
+				<string>Currency</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>089E4F01-0962-4C51-A276-CC83795C7F7F</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -611,23 +673,23 @@
 		<key>009D1F46-8846-44E9-A114-410D7CAC0335</key>
 		<dict>
 			<key>xpos</key>
-			<integer>335</integer>
+			<integer>330</integer>
 			<key>ypos</key>
-			<integer>810</integer>
+			<integer>915</integer>
 		</dict>
 		<key>067585D0-D3EC-462E-9660-006407A51F3D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<integer>595</integer>
 			<key>ypos</key>
-			<integer>635</integer>
+			<integer>740</integer>
 		</dict>
 		<key>089E4F01-0962-4C51-A276-CC83795C7F7F</key>
 		<dict>
 			<key>xpos</key>
 			<integer>85</integer>
 			<key>ypos</key>
-			<integer>80</integer>
+			<integer>210</integer>
 		</dict>
 		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
 		<dict>
@@ -641,23 +703,23 @@
 		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>175</integer>
+			<integer>170</integer>
 			<key>ypos</key>
-			<integer>810</integer>
+			<integer>915</integer>
 		</dict>
 		<key>4582263F-3BD2-4C8C-BE92-885558B2AB09</key>
 		<dict>
 			<key>xpos</key>
-			<integer>175</integer>
+			<integer>170</integer>
 			<key>ypos</key>
-			<integer>400</integer>
+			<integer>505</integer>
 		</dict>
 		<key>49937CBC-15F2-40F2-869E-05389B3132B5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>175</integer>
+			<integer>170</integer>
 			<key>ypos</key>
-			<integer>280</integer>
+			<integer>385</integer>
 		</dict>
 		<key>4BF0521A-1187-480A-93C4-3C50DB86AC1E</key>
 		<dict>
@@ -669,23 +731,23 @@
 		<key>567440A9-0F78-4C99-9E28-C6101B0723C9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>375</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>280</integer>
+			<integer>385</integer>
 		</dict>
 		<key>6EA7041C-9AFC-4C3B-A20D-3E146FE2B8E5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>375</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>400</integer>
+			<integer>505</integer>
 		</dict>
 		<key>6FAA9D33-6197-4A11-A578-806849E422AC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<integer>595</integer>
 			<key>ypos</key>
-			<integer>340</integer>
+			<integer>445</integer>
 		</dict>
 		<key>A8C33E52-EE70-42AE-9382-3CE25F1887E3</key>
 		<dict>
@@ -697,23 +759,30 @@
 		<key>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</key>
 		<dict>
 			<key>xpos</key>
-			<integer>375</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>605</integer>
+			<integer>710</integer>
 		</dict>
 		<key>B04157B8-7BF9-4D82-89D4-2A47C439E32F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>175</integer>
+			<integer>170</integer>
 			<key>ypos</key>
-			<integer>605</integer>
+			<integer>710</integer>
 		</dict>
 		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>785</integer>
+			<integer>780</integer>
 			<key>ypos</key>
-			<integer>370</integer>
+			<integer>475</integer>
+		</dict>
+		<key>BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>85</integer>
+			<key>ypos</key>
+			<integer>80</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
