@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-This workflow relies currencyconverterapi.com. You will need to obtain an API key, which is available entirely free of charge at <https://free.currencyconverterapi.com/free-api-key>.
+This workflow relies on currencyconverterapi.com. You will need to obtain an API key, which is available entirely free of charge at <https://free.currencyconverterapi.com/free-api-key>.
 
 ## Preferences
 
