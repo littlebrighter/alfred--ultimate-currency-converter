@@ -15,6 +15,10 @@ lb_language | optional | possible values *en* (default) or *de*, only affects de
 
 ---
 
+This workflow was heavily inspired and based on the source code of bigluck / Luca Bigons original Alfred Currency Converter <https://github.com/bigluck/alfred2-currencyconverter>. This release is done with the permission of Luca.
+
+---
+
 ### References
 
 <https://www.alfredapp.com/workflows/>
