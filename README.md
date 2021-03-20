@@ -1,12 +1,12 @@
-# Alfred Workflow for converting currencies with data from currencyconverterapi.com
+# The best Alfred Workflow for Converting Currencies. Period.
 
 ## Prerequisites
 
-You will need to have an API key for the free version. This can be otained at <https://free.currencyconverterapi.com/free-api-key>.
+This workflow relies currencyconverterapi.com. You will need to obtain an API key, which is available entirely free of charge at <https://free.currencyconverterapi.com/free-api-key>.
 
 ## Preferences
 
-Preferences are Alfred Workflow Environment Variables. They can be set / changed in the Alfred Preferences.
+Preferences are Alfred Workflow Environment Variables, which can be set / changed in the Alfred Preferences.
 
 Name | | Values
 ------------|---|-------
@@ -15,12 +15,11 @@ lb_language | optional | possible values *en* (default) or *de*, only affects de
 
 ---
 
-This workflow was heavily inspired and based on the source code of bigluck / Luca Bigons original Alfred Currency Converter <https://github.com/bigluck/alfred2-currencyconverter>. This release is done with the permission of Luca.
+This workflow was heavily inspired and is based on the source code of bigluck / Luca Bigon’s original Alfred Currency Converter <https://github.com/bigluck/alfred2-currencyconverter>. Released with Luca’s permission.
 
 ---
 
 ### References
 
-<https://www.alfredapp.com/workflows/>
-
-<https://free.currencyconverterapi.com/free-api-key>
+* <https://www.alfredapp.com/workflows/>
+* <https://free.currencyconverterapi.com/free-api-key>
