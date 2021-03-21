@@ -56,4 +56,4 @@ jobs:
       # Post version number to server
       - name: Post version number
         run: |
-          curl -L -X POST -d "repo=${{ github.event.repository.name }}" https://alfred.hellerarko.de/
+          curl -L -X POST -d "repo=${{ github.event.repository.name }}" https://littlebrighter.erevo.io/alfred/
