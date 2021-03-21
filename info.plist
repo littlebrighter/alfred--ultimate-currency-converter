@@ -3,24 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>littlebrighter.alfred--currency-converter</string>
+	<string>io.erevo.littlebrighter.alfred--ultimate-currency-converter</string>
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
-		<key>089E4F01-0962-4C51-A276-CC83795C7F7F</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
 		<array>
 			<dict>
@@ -167,11 +154,11 @@
 	<key>createdby</key>
 	<string>Little Brighter</string>
 	<key>description</key>
-	<string></string>
+	<string>The best Alfred Workflow for Converting Currencies. Period.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Currency Converter</string>
+	<string>Ultimate Currency Converter</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -182,7 +169,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://github.com/littlebrighter/alfred--currency-converter/releases/latest</string>
+				<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter/releases/latest</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
@@ -227,9 +214,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Try ‘12 €‘, ‘12 € to $‘ or ‘€‘ and convert your currency</string>
+				<string>Try ‘23 €‘, ‘23 € to $‘ or ‘€‘ and convert your currency</string>
 				<key>title</key>
-				<string>Currency</string>
+				<string>Ultimate Currency Converter</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -263,7 +250,7 @@
 					</dict>
 				</array>
 				<key>elselabel</key>
-				<string>else</string>
+				<string></string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.conditional</string>
@@ -299,6 +286,53 @@
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>4</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>php -f look-up.php -- "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Ultimate Currency Converter – select</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
 				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
@@ -307,7 +341,7 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
-				<string>cur</string>
+				<string>currency-look-up</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -319,15 +353,15 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>php -f ./e4WorkflowApp.php -- "{query}" "default"</string>
+				<string>php -f look-up.php -- "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Try ‘12 €‘, ‘12 € to $‘ or ‘€‘ and convert your currency</string>
+				<string>Look-up currencies, countries, currency abbreviations and country abbreviations</string>
 				<key>title</key>
-				<string>Currency</string>
+				<string>Ultimate Currency Converter – look-up</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -336,9 +370,24 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>089E4F01-0962-4C51-A276-CC83795C7F7F</string>
+			<string>B04157B8-7BF9-4D82-89D4-2A47C439E32F</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>leftcursor</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.showalfred</string>
+			<key>uid</key>
+			<string>067585D0-D3EC-462E-9660-006407A51F3D</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -397,9 +446,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Change default currency</string>
+				<string>Change default currency used for ’from conversions‘</string>
 				<key>title</key>
-				<string>Currency Converter: set default from</string>
+				<string>Ultimate Currency Converter – set default from</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -482,9 +531,9 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Change default currency</string>
+				<string>Change default currency used for ’to conversions’</string>
 				<key>title</key>
-				<string>Currency Converter: set default to</string>
+				<string>Ultimate Currency Converter – set default to</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -519,117 +568,6 @@
 			<string>6EA7041C-9AFC-4C3B-A20D-3E146FE2B8E5</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>php -f look-up.php -- "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>currency-select</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>2</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>4</integer>
-				<key>keyword</key>
-				<string>currency-look-up</string>
-				<key>queuedelaycustom</key>
-				<integer>1</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<false/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>php -f look-up.php -- "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>Look-up: currencies, countries, currency abbreviations, country abbreviations</string>
-				<key>title</key>
-				<string>Currency Converter: look-up</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>B04157B8-7BF9-4D82-89D4-2A47C439E32F</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string>{query}</string>
-				<key>leftcursor</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.showalfred</string>
-			<key>uid</key>
-			<string>067585D0-D3EC-462E-9660-006407A51F3D</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -673,28 +611,19 @@
 		<key>009D1F46-8846-44E9-A114-410D7CAC0335</key>
 		<dict>
 			<key>xpos</key>
-			<integer>330</integer>
+			<integer>245</integer>
 			<key>ypos</key>
-			<integer>915</integer>
+			<integer>795</integer>
 		</dict>
 		<key>067585D0-D3EC-462E-9660-006407A51F3D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>595</integer>
+			<integer>510</integer>
 			<key>ypos</key>
-			<integer>740</integer>
-		</dict>
-		<key>089E4F01-0962-4C51-A276-CC83795C7F7F</key>
-		<dict>
-			<key>xpos</key>
-			<integer>85</integer>
-			<key>ypos</key>
-			<integer>210</integer>
+			<integer>380</integer>
 		</dict>
 		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
 		<dict>
-			<key>note</key>
-			<string>Updater</string>
 			<key>xpos</key>
 			<integer>375</integer>
 			<key>ypos</key>
@@ -703,23 +632,23 @@
 		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>85</integer>
 			<key>ypos</key>
-			<integer>915</integer>
+			<integer>795</integer>
 		</dict>
 		<key>4582263F-3BD2-4C8C-BE92-885558B2AB09</key>
 		<dict>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>85</integer>
 			<key>ypos</key>
-			<integer>505</integer>
+			<integer>615</integer>
 		</dict>
 		<key>49937CBC-15F2-40F2-869E-05389B3132B5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>85</integer>
 			<key>ypos</key>
-			<integer>385</integer>
+			<integer>495</integer>
 		</dict>
 		<key>4BF0521A-1187-480A-93C4-3C50DB86AC1E</key>
 		<dict>
@@ -731,23 +660,23 @@
 		<key>567440A9-0F78-4C99-9E28-C6101B0723C9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>370</integer>
+			<integer>290</integer>
 			<key>ypos</key>
-			<integer>385</integer>
+			<integer>495</integer>
 		</dict>
 		<key>6EA7041C-9AFC-4C3B-A20D-3E146FE2B8E5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>370</integer>
+			<integer>290</integer>
 			<key>ypos</key>
-			<integer>505</integer>
+			<integer>615</integer>
 		</dict>
 		<key>6FAA9D33-6197-4A11-A578-806849E422AC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>595</integer>
+			<integer>510</integer>
 			<key>ypos</key>
-			<integer>445</integer>
+			<integer>555</integer>
 		</dict>
 		<key>A8C33E52-EE70-42AE-9382-3CE25F1887E3</key>
 		<dict>
@@ -759,23 +688,23 @@
 		<key>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</key>
 		<dict>
 			<key>xpos</key>
-			<integer>370</integer>
+			<integer>285</integer>
 			<key>ypos</key>
-			<integer>710</integer>
+			<integer>350</integer>
 		</dict>
 		<key>B04157B8-7BF9-4D82-89D4-2A47C439E32F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>170</integer>
+			<integer>85</integer>
 			<key>ypos</key>
-			<integer>710</integer>
+			<integer>350</integer>
 		</dict>
 		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>780</integer>
+			<integer>695</integer>
 			<key>ypos</key>
-			<integer>475</integer>
+			<integer>585</integer>
 		</dict>
 		<key>BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7</key>
 		<dict>
@@ -798,8 +727,8 @@
 		<string>lb_language</string>
 	</array>
 	<key>version</key>
-	<string>1.1.0</string>
+	<string>1.2.0</string>
 	<key>webaddress</key>
-	<string>https://github.com/littlebrighter/alfred--currency-converter</string>
+	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>
 </plist>
