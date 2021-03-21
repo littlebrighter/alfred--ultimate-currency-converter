@@ -24,6 +24,18 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>232799F8-57DA-44CD-8B81-BB86A6C1B147</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>ADC5063D-EB4C-4CDA-92BA-695DCA0A1C0D</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>A8C33E52-EE70-42AE-9382-3CE25F1887E3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -248,6 +260,20 @@
 						<key>uid</key>
 						<string>A2C1F654-E4BF-4D81-8BB2-3C158C8F8E66</string>
 					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>--get-api-key</string>
+						<key>outputlabel</key>
+						<string></string>
+						<key>uid</key>
+						<string>ADC5063D-EB4C-4CDA-92BA-695DCA0A1C0D</string>
+					</dict>
 				</array>
 				<key>elselabel</key>
 				<string></string>
@@ -256,6 +282,25 @@
 			<string>alfred.workflow.utility.conditional</string>
 			<key>uid</key>
 			<string>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://free.currencyconverterapi.com/free-api-key/</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>232799F8-57DA-44CD-8B81-BB86A6C1B147</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -613,28 +658,35 @@
 			<key>xpos</key>
 			<integer>245</integer>
 			<key>ypos</key>
-			<integer>795</integer>
+			<integer>765</integer>
 		</dict>
 		<key>067585D0-D3EC-462E-9660-006407A51F3D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>510</integer>
+			<integer>405</integer>
 			<key>ypos</key>
 			<integer>380</integer>
+		</dict>
+		<key>232799F8-57DA-44CD-8B81-BB86A6C1B147</key>
+		<dict>
+			<key>xpos</key>
+			<integer>515</integer>
+			<key>ypos</key>
+			<integer>140</integer>
 		</dict>
 		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>375</integer>
+			<integer>270</integer>
 			<key>ypos</key>
-			<integer>100</integer>
+			<integer>85</integer>
 		</dict>
 		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
 		<dict>
 			<key>xpos</key>
 			<integer>85</integer>
 			<key>ypos</key>
-			<integer>795</integer>
+			<integer>765</integer>
 		</dict>
 		<key>4582263F-3BD2-4C8C-BE92-885558B2AB09</key>
 		<dict>
@@ -653,42 +705,42 @@
 		<key>4BF0521A-1187-480A-93C4-3C50DB86AC1E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<integer>515</integer>
 			<key>ypos</key>
-			<integer>35</integer>
+			<integer>25</integer>
 		</dict>
 		<key>567440A9-0F78-4C99-9E28-C6101B0723C9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>245</integer>
 			<key>ypos</key>
 			<integer>495</integer>
 		</dict>
 		<key>6EA7041C-9AFC-4C3B-A20D-3E146FE2B8E5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>290</integer>
+			<integer>245</integer>
 			<key>ypos</key>
 			<integer>615</integer>
 		</dict>
 		<key>6FAA9D33-6197-4A11-A578-806849E422AC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>510</integer>
+			<integer>425</integer>
 			<key>ypos</key>
 			<integer>555</integer>
 		</dict>
 		<key>A8C33E52-EE70-42AE-9382-3CE25F1887E3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>600</integer>
+			<integer>515</integer>
 			<key>ypos</key>
-			<integer>175</integer>
+			<integer>260</integer>
 		</dict>
 		<key>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</key>
 		<dict>
 			<key>xpos</key>
-			<integer>285</integer>
+			<integer>240</integer>
 			<key>ypos</key>
 			<integer>350</integer>
 		</dict>
@@ -702,7 +754,7 @@
 		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>695</integer>
+			<integer>580</integer>
 			<key>ypos</key>
 			<integer>585</integer>
 		</dict>
