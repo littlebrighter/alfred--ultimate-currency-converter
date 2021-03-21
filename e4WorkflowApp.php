@@ -17,7 +17,7 @@ $v = '';
 if ( (!file_exists($_ENV['alfred_workflow_cache'].'/update')) ||
      ((time() - filemtime($_ENV['alfred_workflow_cache'].'/update')) > 60*60*24 ) ||
      (file_get_contents($_ENV['alfred_workflow_cache'].'/update') == '') ) {
-  $v = @file_get_contents('https://alfred.hellerarko.de/?repo='.str_replace('littlebrighter.', '', $_ENV['alfred_workflow_bundleid']));
+  $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('littlebrighter.', '', $_ENV['alfred_workflow_bundleid']));
   file_put_contents($_ENV['alfred_workflow_cache'].'/update', $v);
 }
 else {
@@ -81,21 +81,21 @@ class e4WorkflowApp {
     $this->addCommand('convert',
         array('id' => 'convert',
               'cmd' => 'Convert',
-              'title' => 'Currency',
-              'subtitle' => 'Try ‘12 €‘, ‘12 € to $‘ or ‘€‘ and convert your currency',
+              'title' => 'Ultimate Currency Converter',
+              'subtitle' => 'Try ‘23 €‘, ‘23 € to $‘ or ‘€‘ and convert your currency',
               'default' => true));
 
     $this->addCommand('set from',
         array('id' => 'set from',
               'cmd' => 'Set',
-              'title' => 'Currency Converter: set default from',
-              'subtitle' => 'Change default currency'));
+              'title' => 'Ultimate Currency Converter – set default from',
+              'subtitle' => 'Change default currency used for ’from conversions‘'));
 
     $this->addCommand('set to',
         array('id' => 'set to',
               'cmd' => 'Set',
-              'title' => 'Currency Converter: set default to',
-              'subtitle' => 'Change default currency'));
+              'title' => 'Ultimate Currency Converter – set default to',
+              'subtitle' => 'Change default currency used for to conversions‘'));
 
     // Callback functions on application exit
     register_shutdown_function(array($this, 'exportConfig'));
@@ -167,8 +167,9 @@ class e4WorkflowApp {
     );
     foreach($out AS $rows) {
       $objItem = $xmlObject->addChild('item');
-      foreach ($rows AS $key => $value)
-      $objItem->{ $tmpTypes[$key] ?: 'addChild' }($key, $value);
+      foreach ($rows AS $key => $value) {
+        $objItem->{ $tmpTypes[$key] ?: 'addChild' }($key, $value);
+      }
     }
     return $xmlObject->asXML();
 
@@ -229,7 +230,36 @@ class e4WorkflowApp {
     $response = curl_exec($ch);
 
     if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200 || !$response) {
-      $response = false;
+
+      $j = json_decode($response, true);
+
+      if (array_key_exists('error', $j)) {
+
+        if (preg_match('/^Free API Key is required./', $j['error'])) {
+          $result[0]['title'] = 'Error: no API key given in Alfred Preferences';
+          $result[0]['subtitle'] = 'select to open ’currencyconverterapi.com‘ in browser to get your free key';
+          $result[0]['valid'] = true;
+        }
+        elseif (preg_match('/^Invalid Free API Key../', $j['error'])) {
+          $result[0]['title'] = 'Error: invalid API key given in Alfred Preferences';
+          $result[0]['subtitle'] = 'Hint: please edit Workflow Environment Variables in Alfred Preferences.';
+          $result[0]['valid'] = false;
+        }
+        else {
+          $result[0]['title'] = 'unknown error';
+          $result[0]['valid'] = false;
+        }
+        $result[0]['icon']['path'] = 'icon-error.png';
+        $result[0]['arg'] = '--get-api-key';
+        echo '{"items": '.json_encode($result).'}';
+
+        exit;
+
+      }
+      else {
+        $response = false;
+      }
+
     }
     else {
       file_put_contents($cacheFileName, $response);

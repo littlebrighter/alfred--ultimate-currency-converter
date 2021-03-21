@@ -29,7 +29,7 @@ class e4WorkflowDoSet extends e4WorkflowCommands {
       'uid' => $id,
       'arg' => $id,
       'title' => 'Set '.$id.($selected ? ' (current setting)' : ''),
-      'subtitle' => e4Currency::currencyName($id),
+      'subtitle' => trim(e4Currency::currencyName($id).' '.e4Currency::currencyFlag($id)),
       'autocomplete' => $this->inID.$id,
       'icon' => 'icon.png',
       'valid' => 'true');

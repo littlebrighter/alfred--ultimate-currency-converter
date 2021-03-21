@@ -86,7 +86,7 @@ class e4WorkflowDoConvert extends e4WorkflowCommands {
         'uid' => 'none',
         'arg' => 'none',
         'title' => 'Invalid query '.$inQuery,
-        'subtitle' => 'Try ‘12 €‘ or ‘12 € to $‘ or ‘€‘ and have fun!',
+        'subtitle' => 'Try ‘23 €‘, ‘23 € to $‘ or ‘€‘ and convert your currency',
         'icon' => 'icon.png',
         'valid' => 'no'
       );

@@ -17,28 +17,48 @@ $i = 0;
 
 if ($argv[1] != '') {
 
+  define('KEYWORD_CURRENCY', 'BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7');
+  define('KEYWORD_LOOKUP', 'B04157B8-7BF9-4D82-89D4-2A47C439E32F');
+  define('KEYWORD_SET_FROM', '49937CBC-15F2-40F2-869E-05389B3132B5');
+  define('KEYWORD_SET_TO', '4582263F-3BD2-4C8C-BE92-885558B2AB09');
+
+  $f = explode("\n", trim(file_get_contents('info.plist')));
+  $keyword = '';
+  $keywords = array();
+  foreach ($f as $k => $v) {
+    if (trim($v) == '<key>keyword</key>') {
+      $keyword = str_replace('<string>', '', str_replace('</string>', '', trim($f[$k+1])));
+    }
+    elseif ((trim($v) == '<key>uid</key>') && ($keyword != '')) {
+      $uid = str_replace('<string>', '', str_replace('</string>', '', trim($f[$k+1])));
+      $keywords[$uid] = $keyword;
+      $keyword = '';
+    }
+  }
+
   $cur = str_replace('currency-select ', '', $argv[1]);
 
   $result[$i]['title'] = '← back';
-  $result[$i]['arg'] = 'currency-look-up '.$cur;
+  $result[$i]['arg'] = $keywords[KEYWORD_LOOKUP].' '.$cur;
+  $result[$i]['icon']['path'] = 'icon-lookup.png';
   $result[$i]['valid'] = true;
   $i++;
 
   $result[$i]['title'] = 'use in next query';
-  $result[$i]['arg'] = 'cur '.$cur;
+  $result[$i]['arg'] = $keywords[KEYWORD_CURRENCY].' '.$cur;
   $result[$i]['valid'] = true;
   $i++;
 
   $result[$i]['title'] = 'Set default from';
   $result[$i]['subtitle'] = 'please confirm new selection in next window';
-  $result[$i]['arg'] = 'currency-set-from '.$cur;
+  $result[$i]['arg'] = $keywords[KEYWORD_SET_FROM].' '.$cur;
   $result[$i]['icon']['path'] = 'icon-settings.png';
   $result[$i]['valid'] = true;
   $i++;
 
   $result[$i]['title'] = 'Set default to';
   $result[$i]['subtitle'] = 'please confirm new selection in next window';
-  $result[$i]['arg'] = 'currency-set-to '.$cur;
+  $result[$i]['arg'] = $keywords[KEYWORD_SET_TO].' '.$cur;
   $result[$i]['icon']['path'] = 'icon-settings.png';
   $result[$i]['valid'] = true;
   $i++;
