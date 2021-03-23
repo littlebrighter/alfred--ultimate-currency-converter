@@ -17,7 +17,7 @@ $v = '';
 if ( (!file_exists($_ENV['alfred_workflow_cache'].'/update')) ||
      ((time() - filemtime($_ENV['alfred_workflow_cache'].'/update')) > 60*60*24 ) ||
      (file_get_contents($_ENV['alfred_workflow_cache'].'/update') == '') ) {
-  $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('littlebrighter.', '', $_ENV['alfred_workflow_bundleid']));
+  $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('io.erevo.littlebrighter.', '', $_ENV['alfred_workflow_bundleid']));
   file_put_contents($_ENV['alfred_workflow_cache'].'/update', $v);
 }
 else {
