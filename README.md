@@ -4,9 +4,9 @@
 
 ## Prerequisites
 
-This workflow relies on currencyconverterapi.com. You will need to get an API key, which is available entirely free of charge [here](https://free.currencyconverterapi.com/free-api-key).
+This workflow relies on an API provided by currencyconverterapi.com. You will need to get an API key, which is available entirely free of charge [here](https://free.currencyconverterapi.com/free-api-key).
 
-The free version is limited to 100 requests/hour, enough for most of us. Ultimate Currency Converter caches the requests, so that currency combinations are only fetched once per hour. Thus, you can perform 100 different combinations of two currencies every hour without running into the limit.
+That free API is limited to 100 requests/hour, enough for most of us. Ultimate Currency Converter caches the requests, so that currency combinations are only fetched once per hour. Thus, you can perform 100 different combinations of two currencies every hour without running into the limit.
 
 ## Instructions
 
