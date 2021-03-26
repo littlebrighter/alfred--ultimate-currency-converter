@@ -14,14 +14,19 @@ That free API is limited to 100 requests/hour, enough for most of us. Ultimate C
 
 Currency Converter accepts simple and complex queries.
 
+Was hiernach kommt, versteht man nicht, wenn man nicht schon mal mit dem UCC gearbeitet hat. An dieser Stelle muss als das Konzept der Base Currency und der was – aktuellen bevorzugten Target Currency? Die wie festgelegt wird? Autom. nach Häufigkeit? Per Pref? (gerade keine Zeit zum nachschauen) – erläutert werden.
+
 ### Basic exchange rate
  * `currency €` → displays current EUR / USD exchange rate
  * `currency € £` → displays current EUR / GBP exchange rate
 
+Ich weiß nicht, ob ich hier mit Symbolen, oder doch lieber Kürzeln erklären würde (EUR vs. €). Ich persönlich nutze immer nur Kürzel. Symbole werden ja untenstehend erklärt.
+
 ### Basic conversion
  * `currency 23 €` → converts 23 EUR to USD
- * `currency 23€ £` → converts 23 EUR to GBP
- * `currency 23 € £` → converts 23 EUR to GBP
+ * `currency 23€ £` or `currency 23 € £` → converts 23 EUR to GBP
+
+Vielleicht sollte man lieber nochmal einen separaten Abschnitt ”Use of spaces“ machen!?
 
 ### Symbols and International Codes support
 Use at your convenience, many symbols included (e.g. €, $, £, ¥, ₨, kn, …).
