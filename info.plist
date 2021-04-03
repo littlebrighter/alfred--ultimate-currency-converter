@@ -204,7 +204,7 @@
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>keyword</key>
@@ -779,7 +779,7 @@
 		<string>lb_language</string>
 	</array>
 	<key>version</key>
-	<string>1.2.1</string>
+	<string>1.2.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>
