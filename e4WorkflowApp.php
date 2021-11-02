@@ -1,39 +1,42 @@
 <?php
 
+error_reporting(E_ALL & ~E_NOTICE);
+
 // ------------------------------------------------------------------------------------
 
-function __autoload($className) {
+//function __autoload($className) {
+spl_autoload_register(function ($className) {
   include 'libs/'.$className.'.php';
-}
+});
 
 // ------------------------------------------------------------------------------------
 
 // check for update
 
-if (!file_exists($_ENV['alfred_workflow_cache'])) mkdir($_ENV['alfred_workflow_cache'], 0777, true);
+if (!file_exists(getenv('alfred_workflow_cache'))) mkdir(getenv('alfred_workflow_cache'), 0777, true);
 
 // if no previous update status available or old status is older than 24 h --> get new status
 $v = '';
-if ( (!file_exists($_ENV['alfred_workflow_cache'].'/update')) ||
-     ((time() - filemtime($_ENV['alfred_workflow_cache'].'/update')) > 60*60*24 ) ||
-     (file_get_contents($_ENV['alfred_workflow_cache'].'/update') == '') ) {
-  $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('io.erevo.littlebrighter.', '', $_ENV['alfred_workflow_bundleid']));
-  file_put_contents($_ENV['alfred_workflow_cache'].'/update', $v);
+if ( (!file_exists(getenv('alfred_workflow_cache').'/update')) ||
+     ((time() - filemtime(getenv('alfred_workflow_cache').'/update')) > 60*60*24 ) ||
+     (file_get_contents(getenv('alfred_workflow_cache').'/update') == '') ) {
+  $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('io.erevo.littlebrighter.', '', getenv('alfred_workflow_bundleid')));
+  file_put_contents(getenv('alfred_workflow_cache').'/update', $v);
 }
 else {
-  $v = @file_get_contents($_ENV['alfred_workflow_cache'].'/update');
+  $v = @file_get_contents(getenv('alfred_workflow_cache').'/update');
 }
 
-if (($v) && (version_compare($_ENV['alfred_workflow_version'], str_replace('v', '', $v)) == -1)) {
+if (($v) && (version_compare(getenv('alfred_workflow_version'), str_replace('v', '', $v)) == -1)) {
 
-  exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run trigger "update-available" in workflow "'.$_ENV['alfred_workflow_bundleid'].'" with argument "new workflow version is available ('.$v.') for '.$_ENV['alfred_workflow_name'].'"\'');
+  exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run trigger "update-available" in workflow "'.getenv('alfred_workflow_bundleid').'" with argument "new workflow version is available ('.$v.') for '.getenv('alfred_workflow_name').'"\'');
 
-  $result[0]['title'] = $_ENV['alfred_workflow_name'].': a new workflow version is available ('.$v.')';
-  $result[0]['subtitle'] = 'you are running v'.$_ENV['alfred_workflow_version'].' – select to open download page';
-  $result[0]['icon']['path'] = 'icon-update.png';
-  $result[0]['autocomplete'] = '--download-update';
-  $result[0]['arg'] = '--download-update';
-  $result[0]['valid'] = true;
+  $result[$i]['title'] = getenv('alfred_workflow_name').': a new workflow version is available ('.$v.')';
+  $result[$i]['subtitle'] = 'you are running v'.getenv('alfred_workflow_version').' – select to open download page';
+  $result[$i]['icon']['path'] = 'icon-update.png';
+  $result[$i]['autocomplete'] = '--download-update';
+  $result[$i]['arg'] = '--download-update';
+  $result[$i]['valid'] = true;
   echo '{"items": '.json_encode($result).'}';
 
   exit;
@@ -63,6 +66,7 @@ class e4WorkflowApp {
   protected $defaultsHash;
 
   public $cachePath = false;
+  private $cacheLoaded = false;
   protected $configLoaded = false;
   public $configPath = false;
 
@@ -105,11 +109,11 @@ class e4WorkflowApp {
 
   public function setName() {
 
-    $this->name = $_ENV['alfred_workflow_name'];
-    $this->id = $_ENV['alfred_workflow_bundleid'];
+    $this->name =getenv('alfred_workflow_name');
+    $this->id = getenv('alfred_workflow_bundleid');
 
-    $this->cachePath = $_ENV['alfred_workflow_cache'].'/';
-    $this->configPath = $_ENV['alfred_workflow_data'].'/';
+    $this->cachePath = getenv('alfred_workflow_cache').'/';
+    $this->configPath = getenv('alfred_workflow_data').'/';
 
     @mkdir($this->cachePath, 0777, true);
     @mkdir($this->configPath, 0777, true);
@@ -117,7 +121,7 @@ class e4WorkflowApp {
   }
 
   public function setVersion() {
-    $this->version = $_ENV['alfred_workflow_version'];
+    $this->version = getenv('alfred_workflow_version');
   }
 
   public function setCacheTTL($ttl=3600) {

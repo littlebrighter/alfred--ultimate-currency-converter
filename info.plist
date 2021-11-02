@@ -220,7 +220,21 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>php -f ./e4WorkflowApp.php -- "{query}" "default"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -349,7 +363,21 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>php -f look-up.php -- "{query}"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f look-up.php -- "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -398,7 +426,21 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>php -f look-up.php -- "{query}"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f look-up.php -- "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -442,7 +484,21 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>php -f e4WorkflowApp.php -- "set from {query}" "save"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f e4WorkflowApp.php -- "set from {query}" "save"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -485,7 +541,21 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>php -f e4WorkflowApp.php -- "set from {query}"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f e4WorkflowApp.php -- "set from {query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -570,7 +640,21 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>php -f e4WorkflowApp.php -- "set to {query}"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f e4WorkflowApp.php -- "set to {query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -599,7 +683,21 @@
 				<key>escaping</key>
 				<integer>4</integer>
 				<key>script</key>
-				<string>php -f e4WorkflowApp.php -- "set to {query}" "save"</string>
+				<string>PHP_BINARY=/usr/bin/php
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/usr/local/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  PHP_BINARY=/opt/homebrew/bin/php
+fi
+
+if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  exit 
+fi
+
+$PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -779,7 +877,7 @@
 		<string>lb_language</string>
 	</array>
 	<key>version</key>
-	<string>1.2.2</string>
+	<string>1.12.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>

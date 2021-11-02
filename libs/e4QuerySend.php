@@ -42,7 +42,7 @@ class e4QuerySend {
   public function sendRequest() {
 
     $response = $this->app->sendHTTPRequest('https://free.currconv.com/api/v7/convert?'.http_build_query(array(
-      'apiKey' => $_ENV['lb_freecurrencyconverter_api_key'],
+      'apiKey' => getenv('lb_freecurrencyconverter_api_key'),
       'q' => $this->from.'_'.$this->to,
       'compact' => 'ultra')));
 

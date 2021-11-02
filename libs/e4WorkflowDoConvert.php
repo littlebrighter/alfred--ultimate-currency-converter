@@ -51,7 +51,7 @@ class e4WorkflowDoConvert extends e4WorkflowCommands {
           $thousands_sep = ',';
           $language = 'en';
 
-          if (isset($_ENV['lb_language']) and ($_ENV['lb_language'] == 'de')) {
+          if ((getenv('lb_language')) and (getenv('lb_language') == 'de')) {
             $language = 'de';
             $dec_point = ',';
             $thousands_sep = '.';
