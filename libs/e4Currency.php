@@ -9,7 +9,7 @@ class e4Currency {
     $this->setInput($input);
   }
 
-  public function setInput($input=null) {
+  public function setInput($input='') {
     $this->input = mb_strtoupper(trim($input) ?: '', 'UTF-8');
   }
 
