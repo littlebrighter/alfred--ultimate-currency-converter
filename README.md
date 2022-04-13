@@ -8,6 +8,22 @@ This workflow relies on exchange rate data provided by currencyconverterapi.com.
 
 That free API is limited to 100 requests per hour, enough for most of us. Ultimate Currency Converter caches the requests, so that exchange rates are only fetched once per hour. Thus, you can ask for 100 different combinations of two currencies every hour without running into the limit.
 
+## Prerequisites for users of macOS Monterey 12.0 and later
+
+Apple no longer ships php bundled with macOS from Monterey 12.0, so you need to install php manually. Our recommendation is to go with homebrew. Alfred has built-in support for php from [homebrew](https://brew.sh).
+
+1.) Install homebrew (if you do not have it already), go here [brew.sh](https://brew.sh) or directly run
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+in Terminal.app
+
+2.) Install php with homebrew, i.e. run
+```bash
+brew install php
+```
+in Terminal.app
+
 ## Usage
 
 ### Currency Conversion
