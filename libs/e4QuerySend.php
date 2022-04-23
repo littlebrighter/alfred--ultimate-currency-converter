@@ -41,22 +41,51 @@ class e4QuerySend {
 
   public function sendRequest() {
 
-    $response = $this->app->sendHTTPRequest('https://free.currconv.com/api/v7/convert?'.http_build_query(array(
-      'apiKey' => getenv('lb_freecurrencyconverter_api_key'),
-      'q' => $this->from.'_'.$this->to,
-      'compact' => 'ultra')));
+    if ((getenv('lb_freecurrencyconverter_api_key') !== false) && (trim(getenv('lb_freecurrencyconverter_api_key')) != '')) {
 
-    $res_obj = json_decode($response);
+      // ---------------------------------------
 
-    if ($response) {
-      $this->responseFromAmount = $this->amount * 1.0;
-      $this->responseFromCurrency = $this->from;
-      $this->responseToAmount = $this->amount * 1.0 * $res_obj->{$this->from.'_'.$this->to};
-      $this->responseToCurrency = $this->to;
+      $response = $this->app->sendHTTPRequest('https://free.currconv.com/api/v7/convert?'.http_build_query(array(
+        'apiKey' => getenv('lb_freecurrencyconverter_api_key'),
+        'q' => $this->from.'_'.$this->to,
+        'compact' => 'ultra')));
 
-      return $this->valid = true;
+      $res_obj = json_decode($response);
+
+      if ($response) {
+        $this->responseFromAmount = $this->amount * 1.0;
+        $this->responseFromCurrency = $this->from;
+        $this->responseToAmount = $this->amount * 1.0 * $res_obj->{$this->from.'_'.$this->to};
+        $this->responseToCurrency = $this->to;
+
+        return $this->valid = true;
+      }
+      return $this->valid = false;
+
     }
-    return $this->valid = false;
+
+    else if ((getenv('lb_exchangeratesapi_io_api_key') !== false) && (trim(getenv('lb_exchangeratesapi_io_api_key')) != '')) {
+
+      $response = $this->app->sendHTTPRequest('http:///api.exchangeratesapi.io/v1/latest?'.http_build_query(array(
+        'access_key' => getenv('lb_exchangeratesapi_io_api_key'),
+        'base' => $this->from,
+        'symbols' => $this->to)));
+
+      $res_obj = json_decode($response, true);
+
+      fwrite(STDERR, print_r($res_obj, true));
+
+      if ($res_obj['success'] == 1) {
+        $this->responseFromAmount = $this->amount * 1.0;
+        $this->responseFromCurrency = $this->from;
+        $this->responseToAmount = $this->amount * 1.0 * $res_obj['rates'][$this->to];
+        $this->responseToCurrency = $this->to;
+
+        return $this->valid = true;
+      }
+      return $this->valid = false;
+
+    }
 
   }
 

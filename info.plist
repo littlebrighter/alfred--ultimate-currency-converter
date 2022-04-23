@@ -231,7 +231,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
@@ -374,7 +374,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f look-up.php -- "{query}"</string>
@@ -437,7 +437,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f look-up.php -- "{query}"</string>
@@ -495,7 +495,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f e4WorkflowApp.php -- "set from {query}" "save"</string>
@@ -552,7 +552,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f e4WorkflowApp.php -- "set from {query}"</string>
@@ -651,7 +651,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}"</string>
@@ -694,7 +694,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  exit 
+  exit
 fi
 
 $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
@@ -866,6 +866,8 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 	</dict>
 	<key>variables</key>
 	<dict>
+		<key>lb_exchangeratesapi_io_api_key</key>
+		<string></string>
 		<key>lb_freecurrencyconverter_api_key</key>
 		<string></string>
 		<key>lb_language</key>
@@ -873,6 +875,7 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>lb_exchangeratesapi_io_api_key</string>
 		<string>lb_freecurrencyconverter_api_key</string>
 		<string>lb_language</string>
 	</array>
