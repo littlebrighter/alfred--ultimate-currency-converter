@@ -875,12 +875,12 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
+		<string>lb_language</string>
 		<string>lb_exchangeratesapi_io_api_key</string>
 		<string>lb_freecurrencyconverter_api_key</string>
-		<string>lb_language</string>
 	</array>
 	<key>version</key>
-	<string>1.12.2</string>
+	<string>1.12.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>
