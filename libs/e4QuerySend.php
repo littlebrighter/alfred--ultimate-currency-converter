@@ -52,6 +52,8 @@ class e4QuerySend {
 
       $res_obj = json_decode($response);
 
+      fwrite(STDERR, print_r($res_obj, true));
+
       if ($response) {
         $this->responseFromAmount = $this->amount * 1.0;
         $this->responseFromCurrency = $this->from;

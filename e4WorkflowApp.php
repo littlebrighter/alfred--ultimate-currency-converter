@@ -237,6 +237,8 @@ class e4WorkflowApp {
 
       $j = json_decode($response, true);
 
+      fwrite(STDERR, print_r($j, true));
+
       if (array_key_exists('error', $j)) {
 
         if (preg_match('/^Free API Key is required./', $j['error'])) {
@@ -245,9 +247,17 @@ class e4WorkflowApp {
           $result[0]['valid'] = true;
         }
         elseif (preg_match('/^Invalid Free API Key../', $j['error'])) {
-          $result[0]['title'] = 'Error: invalid API key given in Alfred Preferences';
+          $result[0]['title'] = 'Invalid API key given in Alfred Preferences (currencyconverterapi.com)';
           $result[0]['subtitle'] = 'Hint: please edit Workflow Environment Variables in Alfred Preferences.';
           $result[0]['valid'] = false;
+        }
+        elseif ($j['error']['code'] == 'base_currency_access_restricted') {
+          $result[0]['title'] = 'Error: base_currency_access_restricted';
+          $result[0]['subtitle'] = 'Your exchangesratesapi.io account only supports converting from EUR';
+        }
+        elseif ($j['error']['code'] == 'invalid_access_key') {
+          $result[0]['title'] = 'Invalid API key given in Alfred Preferences (exchangeratesapi.io)';
+          $result[0]['subtitle'] = 'Hint: please edit Workflow Environment Variables in Alfred Preferences.';
         }
         else {
           $result[0]['title'] = 'unknown error';
