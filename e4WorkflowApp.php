@@ -239,7 +239,17 @@ class e4WorkflowApp {
 
       fwrite(STDERR, print_r($j, true));
 
-      if (array_key_exists('error', $j)) {
+      if ($j === null) {
+        $result[0]['title'] = 'Error: Currency Conversion Service not reachable';
+        $result[0]['subtitle'] = 'Please check, if service is available, e.g. by checking their website.';
+        $result[0]['valid'] = false;
+        echo '{"items": '.json_encode($result).'}';
+
+        exit;
+
+      }
+
+      else if (array_key_exists('error', $j)) {
 
         if (preg_match('/^Free API Key is required./', $j['error'])) {
           $result[0]['title'] = 'Error: no API key given in Alfred Preferences';

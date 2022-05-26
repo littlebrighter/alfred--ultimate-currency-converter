@@ -880,7 +880,7 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 		<string>lb_freecurrencyconverter_api_key</string>
 	</array>
 	<key>version</key>
-	<string>1.12.4</string>
+	<string>1.12.5</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>
