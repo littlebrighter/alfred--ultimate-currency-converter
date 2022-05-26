@@ -89,6 +89,30 @@ class e4QuerySend {
 
     }
 
+    else if ((getenv('lb_currency_getgeoapi_com_api_key') !== false) && (trim(getenv('lb_currency_getgeoapi_com_api_key')) != '')) {
+
+      $response = $this->app->sendHTTPRequest('https://api.getgeoapi.com/v2/currency/convert?'.http_build_query(array(
+        'api_key' => getenv('lb_currency_getgeoapi_com_api_key'),
+        'from' => $this->from,
+        'to' => $this->to,
+        'format' => 'json')));
+
+      $res_obj = json_decode($response, true);
+
+      fwrite(STDERR, print_r($res_obj, true));
+
+      if ($res_obj['status'] == 'success') {
+        $this->responseFromAmount = $this->amount * 1.0;
+        $this->responseFromCurrency = $this->from;
+        $this->responseToAmount = $this->amount * 1.0 * $res_obj['rates'][$this->to]['rate'];
+        $this->responseToCurrency = $this->to;
+
+        return $this->valid = true;
+      }
+      return $this->valid = false;
+
+    }
+
   }
 
 }

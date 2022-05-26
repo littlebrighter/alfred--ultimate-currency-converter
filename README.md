@@ -10,6 +10,8 @@ That free API is limited to 100 requests per hour, enough for most of us. Ultima
 
 **Update:** since UCC version 1.12.3 you can also use the API from exchangeratesapi.io. You will also need to get an API key, which is available entirely free of charge [here](https://exchangeratesapi.io/pricing).
 
+**Update:** since UCC version 1.12.6 you can also use the API from currency.getgeoapi.com. You will also need to get an API key, which is available entirely free of charge [here](https://currency.getgeoapi.com/currency-plans/).
+
 ## Prerequisites for users of macOS Monterey 12.0 and later
 
 Apple no longer ships php bundled with macOS from Monterey 12.0, so you need to install php manually. Our recommendation is to go with homebrew. Alfred has built-in support for php from [homebrew](https://brew.sh).
@@ -104,9 +106,12 @@ Preferences are Alfred Workflow Environment Variables, which can be set / change
 
 Name | | Values
 ------------|---|-------
-lb_freecurrencyconverter_api_key | required | API key for the **free** version of the currencyconverterapi.com
-lb_exchangeratesapi_io_api_key | optional | API key for the **free** version of the exchangeratesapi.io
+lb_freecurrencyconverter_api_key | required&nbsp;<sup>*)</sup> | API key for the **free** version of the currencyconverterapi.com
+lb_exchangeratesapi_io_api_key | required&nbsp;<sup>*)</sup> | API key for the **free** version of the exchangeratesapi.io
+lb_currency_getgeoapi_com_api_key | required&nbsp;<sup>*)</sup> | API key for the **free** version of the currency.getgeoapi.com
 lb_language | optional | possible values: `en` (default) or `de`, <br>only affects decimal point (`en` = `.` / `de` = `,`)<br>and thousands seperator (`en` = `,` / `de` = `.`)
+
+<sup>*)</sup>&nbsp; Only one API key is required, choose whichever service you like best.
 
 **Important Hint:** You can use either currencyconverterapi.com **or** exchangeratesapi.io. Add the Environment Variable for whatever API you wish to use (and delete the other, if already present). In case both Environment Variables are present, currencyconverterapi.com will be used.
 
