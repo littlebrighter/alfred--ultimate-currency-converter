@@ -4,13 +4,13 @@
 
 ## Prerequisites
 
-This workflow relies on exchange rate data provided by currencyconverterapi.com. You will need to get an API key, which is available entirely free of charge [here](https://free.currencyconverterapi.com/free-api-key).
+* This workflow relies on exchange rate data provided by [currencyconverterapi.com](https:/currencyconverterapi.com). You will need to get an API key, which is available entirely free of charge [here](https://free.currencyconverterapi.com/free-api-key). That free API is limited to 100 requests per hour, enough for most of us. Ultimate Currency Converter caches the requests, so that exchange rates are only fetched once per hour. Thus, you can ask for 100 different combinations of two currencies every hour without running into the limit.
 
-That free API is limited to 100 requests per hour, enough for most of us. Ultimate Currency Converter caches the requests, so that exchange rates are only fetched once per hour. Thus, you can ask for 100 different combinations of two currencies every hour without running into the limit.
+* **Update:** since UCC version 1.12.3 you can also use the API from [exchangeratesapi.io](https://exchangeratesapi.io). You will also need to get an API key, which is available entirely free of charge [here](https://manage.exchangeratesapi.io/signup/free). 
 
-**Update:** since UCC version 1.12.3 you can also use the API from exchangeratesapi.io. You will also need to get an API key, which is available entirely free of charge [here](https://exchangeratesapi.io/pricing).
+   * **Hint:** Please see [Issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API.
 
-**Update:** since UCC version 1.12.6 you can also use the API from currency.getgeoapi.com. You will also need to get an API key, which is available entirely free of charge [here](https://currency.getgeoapi.com/currency-plans/).
+* **Update:** since UCC version 1.12.6 you can also use the API from [currency.getgeoapi.com](https://currency.getgeoapi.com). You will also need to get an API key, which is available entirely free of charge [here](https://currency.getgeoapi.com/currency-plans/).
 
 ## Prerequisites for users of macOS Monterey 12.0 and later
 
