@@ -52,6 +52,7 @@ echo $app->run($argv);
 // ------------------------------------------------------------------------------------
 
 // e4Workflow library
+#[AllowDynamicProperties]
 class e4WorkflowApp {
 
   public $appDefaultCommand = false;
@@ -305,6 +306,7 @@ class e4WorkflowApp {
 
 // ------------------------------------------------------------------------------------
 
+#[AllowDynamicProperties]
 abstract class e4WorkflowCommands {
 
   protected $inQuery = '';

@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class e4QuerySend {
 
   protected $app = null;

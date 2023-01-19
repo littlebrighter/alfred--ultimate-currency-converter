@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class e4QueryParser {
 
   static $reNumber = '(\s*(from|to)?\s*(?<amount>[\-|\+]?\s*[\d\,\.]+)?)';

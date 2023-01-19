@@ -178,12 +178,14 @@
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter/releases/latest</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -291,6 +293,8 @@ $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 				</array>
 				<key>elselabel</key>
 				<string></string>
+				<key>hideelse</key>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.conditional</string>
@@ -304,12 +308,14 @@ $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 			<dict>
 				<key>browser</key>
 				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
 				<string>https://free.currencyconverterapi.com/free-api-key/</string>
-				<key>utf8</key>
-				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -736,6 +742,8 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
 				<key>triggerid</key>
 				<string>update-available</string>
 			</dict>
@@ -754,116 +762,118 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 		<key>009D1F46-8846-44E9-A114-410D7CAC0335</key>
 		<dict>
 			<key>xpos</key>
-			<integer>245</integer>
+			<real>245</real>
 			<key>ypos</key>
-			<integer>765</integer>
+			<real>765</real>
 		</dict>
 		<key>067585D0-D3EC-462E-9660-006407A51F3D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>405</integer>
+			<real>405</real>
 			<key>ypos</key>
-			<integer>380</integer>
+			<real>380</real>
 		</dict>
 		<key>232799F8-57DA-44CD-8B81-BB86A6C1B147</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<real>515</real>
 			<key>ypos</key>
-			<integer>140</integer>
+			<real>140</real>
 		</dict>
 		<key>299F618E-45EA-4D64-BA4D-42A12F2C8EE5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>270</integer>
+			<real>270</real>
 			<key>ypos</key>
-			<integer>85</integer>
+			<real>85</real>
 		</dict>
 		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>85</integer>
+			<real>85</real>
 			<key>ypos</key>
-			<integer>765</integer>
+			<real>765</real>
 		</dict>
 		<key>4582263F-3BD2-4C8C-BE92-885558B2AB09</key>
 		<dict>
 			<key>xpos</key>
-			<integer>85</integer>
+			<real>85</real>
 			<key>ypos</key>
-			<integer>615</integer>
+			<real>615</real>
 		</dict>
 		<key>49937CBC-15F2-40F2-869E-05389B3132B5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>85</integer>
+			<real>85</real>
 			<key>ypos</key>
-			<integer>495</integer>
+			<real>495</real>
 		</dict>
 		<key>4BF0521A-1187-480A-93C4-3C50DB86AC1E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<real>515</real>
 			<key>ypos</key>
-			<integer>25</integer>
+			<real>25</real>
 		</dict>
 		<key>567440A9-0F78-4C99-9E28-C6101B0723C9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>245</integer>
+			<real>245</real>
 			<key>ypos</key>
-			<integer>495</integer>
+			<real>495</real>
 		</dict>
 		<key>6EA7041C-9AFC-4C3B-A20D-3E146FE2B8E5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>245</integer>
+			<real>245</real>
 			<key>ypos</key>
-			<integer>615</integer>
+			<real>615</real>
 		</dict>
 		<key>6FAA9D33-6197-4A11-A578-806849E422AC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>425</integer>
+			<real>425</real>
 			<key>ypos</key>
-			<integer>555</integer>
+			<real>555</real>
 		</dict>
 		<key>A8C33E52-EE70-42AE-9382-3CE25F1887E3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>515</integer>
+			<real>515</real>
 			<key>ypos</key>
-			<integer>260</integer>
+			<real>260</real>
 		</dict>
 		<key>AEB42E03-BB51-4C9D-B3F8-D54E523CE586</key>
 		<dict>
 			<key>xpos</key>
-			<integer>240</integer>
+			<real>240</real>
 			<key>ypos</key>
-			<integer>350</integer>
+			<real>350</real>
 		</dict>
 		<key>B04157B8-7BF9-4D82-89D4-2A47C439E32F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>85</integer>
+			<real>85</real>
 			<key>ypos</key>
-			<integer>350</integer>
+			<real>350</real>
 		</dict>
 		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>580</integer>
+			<real>580</real>
 			<key>ypos</key>
-			<integer>585</integer>
+			<real>585</real>
 		</dict>
 		<key>BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>85</integer>
+			<real>85</real>
 			<key>ypos</key>
-			<integer>80</integer>
+			<real>80</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variables</key>
 	<dict>
 		<key>lb_currency_getgeoapi_com_api_key</key>
@@ -883,7 +893,7 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 		<string>lb_currency_getgeoapi_com_api_key</string>
 	</array>
 	<key>version</key>
-	<string>1.12.6</string>
+	<string>1.13.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>

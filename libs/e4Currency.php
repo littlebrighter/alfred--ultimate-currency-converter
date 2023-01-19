@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class e4Currency {
 
   protected $input = null;

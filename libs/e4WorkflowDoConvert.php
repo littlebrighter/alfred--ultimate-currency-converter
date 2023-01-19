@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class e4WorkflowDoConvert extends e4WorkflowCommands {
 
   public function run($inQuery, $args) {
