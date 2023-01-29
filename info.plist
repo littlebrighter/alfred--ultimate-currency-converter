@@ -149,6 +149,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>B723907D-6759-408D-AAE6-BAB38B087D1F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FCC314AA-FF97-4030-B54D-CCC270DB6FE0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>BD1F8719-5CF7-4BFB-BCD5-403E45BC16F7</key>
 		<array>
 			<dict>
@@ -735,7 +748,7 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>009D1F46-8846-44E9-A114-410D7CAC0335</string>
+			<string>FCC314AA-FF97-4030-B54D-CCC270DB6FE0</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -750,19 +763,104 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 			<key>type</key>
 			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
+			<string>B723907D-6759-408D-AAE6-BAB38B087D1F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Workflow not configured!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>009D1F46-8846-44E9-A114-410D7CAC0335</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>availableviaurlhandler</key>
+				<false/>
+				<key>triggerid</key>
+				<string>do-configure</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
 			<string>30CF62DD-73F7-47C6-8F22-054281B664B7</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string># Ultimate Currency Converter
+
+Please have a look at our [README](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) on GitHub before using for the first time.
+
+## Prerequisites
+
+* This workflow relies on exchange rate data provided by third-party APIs
+* The following services are supported, pick one of them and get an API key:
+    * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key)
+    * [currency.getgeoapi.com](https://currency.getgeoapi.com) → get your API key [here](https://currency.getgeoapi.com/currency-plans/)
+    * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
+
+
+## Prerequisites for users of macOS Monterey 12.0 and later
+
+Apple no longer ships php bundled with macOS from Monterey 12.0, so you need to install php manually. Our recommendation is to go with homebrew. Alfred has built-in support for php from [homebrew](https://brew.sh). Please see [our GitHub repository](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) if you need support with getting php to run.
+
+## Usage
+
+### Currency Conversion
+
+You can trigger this workflow in the Alfred window with the following keyword:
+
+- `currency`
+
+Ultimate Currency Converter accepts simple and complex queries.
+
+The workflow uses two settings. A default **from**-currency and a default **to**-currency. Everytime you start the workflow without explicitely specifying one or both currencies needed for a conversion, Ultimate Currency Converter tries to guess what you intent to do by completing your query with the default ones. See [our GitHub repository](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) for changing default currencies.
+
+#### Most simple example
+
+If you start the workflow and do not specify any parameters, Ultimate Currency Converter guesses a value of 1 to be converted from your default from-currency to your default to-currency.
+
+- `currency` → converts 1 EUR to USD
+
+This assumes you did not change the factory-defaults, i.e. EUR is your default from-currency and USD your default to-currency
+
+#### Basic exchange rate
+ * `currency EUR` → displays current EUR / USD exchange rate
+ * `currency EUR GBP` → displays current EUR / GBP exchange rate
+
+You get the idea: look at the first example: no second currency is given, so the workflow completes your query with USD, which is your default to-currency.
+
+### More on usage …
+
+Please have a look at our [README](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) on GitHub.
+
+### License
+
+Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-currency-converter/blob/main/LICENSE)</string>
 	<key>uidata</key>
 	<dict>
 		<key>009D1F46-8846-44E9-A114-410D7CAC0335</key>
 		<dict>
 			<key>xpos</key>
-			<real>245</real>
+			<real>590</real>
 			<key>ypos</key>
 			<real>765</real>
 		</dict>
@@ -790,7 +888,7 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 		<key>30CF62DD-73F7-47C6-8F22-054281B664B7</key>
 		<dict>
 			<key>xpos</key>
-			<real>85</real>
+			<real>430</real>
 			<key>ypos</key>
 			<real>765</real>
 		</dict>
@@ -857,6 +955,13 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 			<key>ypos</key>
 			<real>350</real>
 		</dict>
+		<key>B723907D-6759-408D-AAE6-BAB38B087D1F</key>
+		<dict>
+			<key>xpos</key>
+			<real>85</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
 		<key>BD1BE058-850F-40EB-8EA8-F2F8D2BAB3B3</key>
 		<dict>
 			<key>xpos</key>
@@ -871,29 +976,119 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 			<key>ypos</key>
 			<real>80</real>
 		</dict>
+		<key>FCC314AA-FF97-4030-B54D-CCC270DB6FE0</key>
+		<dict>
+			<key>xpos</key>
+			<real>245</real>
+			<key>ypos</key>
+			<real>765</real>
+		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
-	<key>variables</key>
-	<dict>
-		<key>lb_currency_getgeoapi_com_api_key</key>
-		<string></string>
-		<key>lb_exchangeratesapi_io_api_key</key>
-		<string></string>
-		<key>lb_freecurrencyconverter_api_key</key>
-		<string></string>
-		<key>lb_language</key>
-		<string></string>
-	</dict>
-	<key>variablesdontexport</key>
 	<array>
-		<string>lb_exchangeratesapi_io_api_key</string>
-		<string>lb_freecurrencyconverter_api_key</string>
-		<string>lb_language</string>
-		<string>lb_currency_getgeoapi_com_api_key</string>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>-</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>please select …</string>
+						<string>-</string>
+					</array>
+					<array>
+						<string>getgeoapi.com</string>
+						<string>getgeoapi.com</string>
+					</array>
+					<array>
+						<string>exchangeratesapi.io</string>
+						<string>exchangeratesapi.io</string>
+					</array>
+					<array>
+						<string>currencyconverterapi.com</string>
+						<string>currencyconverterapi.com</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Choose your desired API service.</string>
+			<key>label</key>
+			<string>API service</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>lb2_api_service</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>API Key</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Please enter your API key (you have to register with one of the available services).</string>
+			<key>label</key>
+			<string>API key</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>lb2_api_key</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>en</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>.</string>
+						<string>en</string>
+					</array>
+					<array>
+						<string>,</string>
+						<string>de</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Choose your preferred decimal separator (dot or comma).</string>
+			<key>label</key>
+			<string>Decimal separator</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>lb2_language</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<true/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
+				<string>Check for updates</string>
+			</dict>
+			<key>description</key>
+			<string>Check regularly, if an updated version of this workflow is available on GitHub.</string>
+			<key>label</key>
+			<string></string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>lb2_updates</string>
+		</dict>
 	</array>
 	<key>version</key>
-	<string>1.13.0</string>
+	<string>1.13.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>

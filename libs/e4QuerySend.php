@@ -42,15 +42,18 @@ class e4QuerySend {
 
   public function sendRequest() {
 
-    if ((getenv('lb_freecurrencyconverter_api_key') !== false) && (trim(getenv('lb_freecurrencyconverter_api_key')) != '')) {
+    if ((getenv('lb2_api_service') !== false) && (getenv('lb2_api_key') !== false)) {
+
+      if ((getenv('lb2_api_service') == 'currencyconverterapi.com')) {
 
       // ---------------------------------------
 
       $response = $this->app->sendHTTPRequest('https://free.currconv.com/api/v7/convert?'.http_build_query(array(
-        'apiKey' => getenv('lb_freecurrencyconverter_api_key'),
+        'apiKey' => getenv('lb2_api_key'),
         'q' => $this->from.'_'.$this->to,
         'compact' => 'ultra')));
 
+      fwrite(STDERR, print_r($response, true));
       $res_obj = json_decode($response);
 
       fwrite(STDERR, print_r($res_obj, true));
@@ -67,10 +70,10 @@ class e4QuerySend {
 
     }
 
-    else if ((getenv('lb_exchangeratesapi_io_api_key') !== false) && (trim(getenv('lb_exchangeratesapi_io_api_key')) != '')) {
+    else if ((getenv('lb2_api_service') == 'exchangeratesapi.io')) {
 
       $response = $this->app->sendHTTPRequest('http:///api.exchangeratesapi.io/v1/latest?'.http_build_query(array(
-        'access_key' => getenv('lb_exchangeratesapi_io_api_key'),
+        'access_key' => getenv('lb2_api_key'),
         'base' => $this->from,
         'symbols' => $this->to)));
 
@@ -90,10 +93,10 @@ class e4QuerySend {
 
     }
 
-    else if ((getenv('lb_currency_getgeoapi_com_api_key') !== false) && (trim(getenv('lb_currency_getgeoapi_com_api_key')) != '')) {
+    else if ((getenv('lb2_api_service') == 'getgeoapi.com')) {
 
       $response = $this->app->sendHTTPRequest('https://api.getgeoapi.com/v2/currency/convert?'.http_build_query(array(
-        'api_key' => getenv('lb_currency_getgeoapi_com_api_key'),
+        'api_key' => getenv('lb2_api_key'),
         'from' => $this->from,
         'to' => $this->to,
         'format' => 'json')));
@@ -111,6 +114,8 @@ class e4QuerySend {
         return $this->valid = true;
       }
       return $this->valid = false;
+
+    }
 
     }
 

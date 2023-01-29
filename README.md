@@ -4,13 +4,15 @@
 
 ## Prerequisites
 
-* This workflow relies on exchange rate data provided by [currencyconverterapi.com](https:/currencyconverterapi.com). You will need to get an API key, which is available entirely free of charge [here](https://free.currencyconverterapi.com/free-api-key). That free API is limited to 100 requests per hour, enough for most of us. Ultimate Currency Converter caches the requests, so that exchange rates are only fetched once per hour. Thus, you can ask for 100 different combinations of two currencies every hour without running into the limit.
+* This workflow relies on exchange rate data provided by third-party APIs
 
-* **Update:** since UCC version 1.12.3 you can also use the API from [exchangeratesapi.io](https://exchangeratesapi.io). You will also need to get an API key, which is available entirely free of charge [here](https://manage.exchangeratesapi.io/signup/free). 
+* The following services are supported, pick one of them and get an API key:
 
-   * **Hint:** Please see [Issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API.
+    * [currency.getgeoapi.com](https://currency.getgeoapi.com) → get your API key [here](https://currency.getgeoapi.com/currency-plans/)
 
-* **Update:** since UCC version 1.12.6 you can also use the API from [currency.getgeoapi.com](https://currency.getgeoapi.com). You will also need to get an API key, which is available entirely free of charge [here](https://currency.getgeoapi.com/currency-plans/).
+    * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
+
+    * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key), usage is limited by number of requests per hour
 
 ## Prerequisites for users of macOS Monterey 12.0 and later
 
@@ -36,7 +38,7 @@ You can trigger this workflow in the Alfred window with the following keyword:
 
 - `currency`
 
-Ultimate Currency Converter accepts simple and complex queries. The next paragraphs tries to transport the idea.
+Ultimate Currency Converter accepts simple and complex queries. The next paragraphs trie to transport the idea.
 
 The workflow uses two settings. A default **from**-currency and a default **to**-currency. Everytime you start the workflow without explicitely specifying one or both currencies needed for a conversion, Ultimate Currency Converter tries to guess what you intent to do by completing your query with the default ones. See below for changing default currencies.
 
@@ -100,20 +102,11 @@ Use the currency-set-to keyword to set a new default to-currency.
 
 - `currency-set-to` *`<query>`*
 
-## Preferences
+## Configuration
 
-Preferences are Alfred Workflow Environment Variables, which can be set / changed in the Alfred Preferences.
+You need to configure this workflow before being able to use it. However, this basically comes down to choosing an API service, getting a key there and entering the key into Alfred.
 
-Name | | Values
-------------|---|-------
-lb_freecurrencyconverter_api_key | required&nbsp;<sup>*)</sup> | API key for the **free** version of the currencyconverterapi.com
-lb_exchangeratesapi_io_api_key | required&nbsp;<sup>*)</sup> | API key for the **free** version of the exchangeratesapi.io
-lb_currency_getgeoapi_com_api_key | required&nbsp;<sup>*)</sup> | API key for the **free** version of the currency.getgeoapi.com
-lb_language | optional | possible values: `en` (default) or `de`, <br>only affects decimal point (`en` = `.` / `de` = `,`)<br>and thousands seperator (`en` = `,` / `de` = `.`)
-
-<sup>*)</sup>&nbsp; Only one API key is required, choose whichever service you like best.
-
-**Important Hint:** You can use either currencyconverterapi.com **or** exchangeratesapi.io. Add the Environment Variable for whatever API you wish to use (and delete the other, if already present). In case both Environment Variables are present, currencyconverterapi.com will be used.
+This workflow uses the new **configuration** feature of Alfred 5.
 
 ## Support
 

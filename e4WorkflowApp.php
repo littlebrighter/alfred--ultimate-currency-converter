@@ -11,33 +11,53 @@ spl_autoload_register(function ($className) {
 
 // ------------------------------------------------------------------------------------
 
-// check for update
+if ((getenv('lb2_updates') !== false) && getenv('lb2_updates') == '1') {
 
-if (!file_exists(getenv('alfred_workflow_cache'))) mkdir(getenv('alfred_workflow_cache'), 0777, true);
+  // check for update
+  if (!file_exists(getenv('alfred_workflow_cache'))) mkdir(getenv('alfred_workflow_cache'), 0777, true);
 
-// if no previous update status available or old status is older than 24 h --> get new status
-$v = '';
-if ( (!file_exists(getenv('alfred_workflow_cache').'/update')) ||
-     ((time() - filemtime(getenv('alfred_workflow_cache').'/update')) > 60*60*24 ) ||
-     (file_get_contents(getenv('alfred_workflow_cache').'/update') == '') ) {
-  $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('io.erevo.littlebrighter.', '', getenv('alfred_workflow_bundleid')));
-  file_put_contents(getenv('alfred_workflow_cache').'/update', $v);
+  // if no previous update status available or old status is older than one hour --> get new status
+  $v = '';
+  if ( (!file_exists(getenv('alfred_workflow_cache').'/update')) ||
+      ((time() - filemtime(getenv('alfred_workflow_cache').'/update')) > 60*60*1 ) ||
+      (file_get_contents(getenv('alfred_workflow_cache').'/update') == '') ) {
+    $v = @file_get_contents('https://littlebrighter.erevo.io/alfred/?repo='.str_replace('io.erevo.littlebrighter.', '', getenv('alfred_workflow_bundleid')));
+    file_put_contents(getenv('alfred_workflow_cache').'/update', $v);
+  }
+  else {
+    $v = @file_get_contents(getenv('alfred_workflow_cache').'/update');
+  }
+
+  if (($v) && (version_compare(getenv('alfred_workflow_version'), str_replace('v', '', $v)) == -1)) {
+
+    exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run trigger "update-available" in workflow "'.getenv('alfred_workflow_bundleid').'" with argument "new workflow version is available ('.$v.') for '.getenv('alfred_workflow_name').'"\'');
+
+    $result['title'] = getenv('alfred_workflow_name').': a new workflow version is available ('.$v.')';
+    $result['subtitle'] = 'you are running v'.getenv('alfred_workflow_version').' – select to open download page';
+    $result['icon']['path'] = 'icon-update.png';
+    $result['autocomplete'] = '--download-update';
+    $result['arg'] = '--download-update';
+    $result['valid'] = true;
+    echo '{"items": ['.json_encode($result).']}';
+
+    exit;
+
+  }
+
 }
-else {
-  $v = @file_get_contents(getenv('alfred_workflow_cache').'/update');
-}
 
-if (($v) && (version_compare(getenv('alfred_workflow_version'), str_replace('v', '', $v)) == -1)) {
+// ------------------------------------------------------------------------------------
 
-  exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run trigger "update-available" in workflow "'.getenv('alfred_workflow_bundleid').'" with argument "new workflow version is available ('.$v.') for '.getenv('alfred_workflow_name').'"\'');
+if ((getenv('lb2_api_service') == '-') || getenv('lb2_api_key') === false) {
 
-  $result[$i]['title'] = getenv('alfred_workflow_name').': a new workflow version is available ('.$v.')';
-  $result[$i]['subtitle'] = 'you are running v'.getenv('alfred_workflow_version').' – select to open download page';
-  $result[$i]['icon']['path'] = 'icon-update.png';
-  $result[$i]['autocomplete'] = '--download-update';
-  $result[$i]['arg'] = '--download-update';
-  $result[$i]['valid'] = true;
-  echo '{"items": '.json_encode($result).'}';
+  $result['title'] = 'No API service configured';
+  $result['subtitle'] = 'Hint: please edit Workflow Configuration in Alfred Preferences.';
+  $result['valid'] = false;
+  $result['icon']['path'] = 'icon-error.png';
+  echo '{"items": ['.json_encode($result).']}';
+
+  exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run trigger "do-configure" in workflow "'.getenv('alfred_workflow_bundleid').'" with argument "Workflow is not configured yet, select to start configuration."\'');
+  exec('osascript -e \'tell application id "com.runningwithcrayons.Alfred" to run search "?workflow '.getenv('alfred_workflow_name').'"\'');
 
   exit;
 
@@ -252,14 +272,15 @@ class e4WorkflowApp {
 
       else if (array_key_exists('error', $j)) {
 
-        if (preg_match('/^Free API Key is required./', $j['error'])) {
+        if ((is_string($j['error'])) && (preg_match('/^Free API Key is required./', $j['error']))) {
           $result[0]['title'] = 'Error: no API key given in Alfred Preferences';
           $result[0]['subtitle'] = 'select to open ’currencyconverterapi.com‘ in browser to get your free key';
+          $result[0]['arg'] = '--get-api-key';
           $result[0]['valid'] = true;
         }
-        elseif (preg_match('/^Invalid Free API Key../', $j['error'])) {
+        elseif ((is_string($j['error'])) && (preg_match('/^Invalid Free API Key../', $j['error']))) {
           $result[0]['title'] = 'Invalid API key given in Alfred Preferences (currencyconverterapi.com)';
-          $result[0]['subtitle'] = 'Hint: please edit Workflow Environment Variables in Alfred Preferences.';
+          $result[0]['subtitle'] = 'Hint: please edit Workflow Configuration in Alfred Preferences.';
           $result[0]['valid'] = false;
         }
         elseif ($j['error']['code'] == 'base_currency_access_restricted') {
@@ -268,14 +289,17 @@ class e4WorkflowApp {
         }
         elseif ($j['error']['code'] == 'invalid_access_key') {
           $result[0]['title'] = 'Invalid API key given in Alfred Preferences (exchangeratesapi.io)';
-          $result[0]['subtitle'] = 'Hint: please edit Workflow Environment Variables in Alfred Preferences.';
+          $result[0]['subtitle'] = 'Hint: please edit Workflow Configuration in Alfred Preferences.';
+        }
+        elseif ($j['error']['code'] == '403') {
+          $result[0]['title'] = 'Invalid API key given in Alfred Preferences (getgeoapi.com)';
+          $result[0]['subtitle'] = 'Hint: please edit Workflow Configuration in Alfred Preferences.';
         }
         else {
           $result[0]['title'] = 'unknown error';
           $result[0]['valid'] = false;
         }
         $result[0]['icon']['path'] = 'icon-error.png';
-        $result[0]['arg'] = '--get-api-key';
         echo '{"items": '.json_encode($result).'}';
 
         exit;
