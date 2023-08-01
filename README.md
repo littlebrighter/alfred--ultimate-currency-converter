@@ -30,6 +30,13 @@ brew install php
 ```
 in Terminal.app
 
+
+## Installation
+
+Installation is as easy as downloading the workflow and double-clicking it to call Alfred.
+
+In order to do so, head over to the [latest release](https://github.com/littlebrighter/alfred--ultimate-currency-converter/releases/latest) and fetch the `Ultimate.Currency.Converter.v*.alfredworkflow` file, e.g. download it to your Mac. Double-click the file and you will be guided to Alfred.app which asks you, if you want to install this workflow.
+
 ## Usage
 
 ### Currency Conversion
