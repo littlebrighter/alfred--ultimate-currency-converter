@@ -252,6 +252,7 @@ class e4WorkflowApp {
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+    curl_setopt($ch, CURLOPT_TIMEOUT, 500);
     $response = curl_exec($ch);
 
     if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200 || !$response) {
@@ -283,6 +284,11 @@ class e4WorkflowApp {
           $result[0]['subtitle'] = 'Hint: please edit Workflow Configuration in Alfred Preferences.';
           $result[0]['valid'] = false;
         }
+        elseif ((is_string($j['error'])) && (preg_match('/^Your Free API key has expired./', $j['error']))) {
+          $result[0]['title'] = 'Your free API key has expired (currencyconverterapi.com)';
+          $result[0]['subtitle'] = 'Hint: please check your mailbox for a message from currencyconverterapi.com.';
+          $result[0]['valid'] = false;
+        }
         elseif ($j['error']['code'] == 'base_currency_access_restricted') {
           $result[0]['title'] = 'Error: base_currency_access_restricted';
           $result[0]['subtitle'] = 'Your exchangesratesapi.io account only supports converting from EUR';
@@ -290,6 +296,10 @@ class e4WorkflowApp {
         elseif ($j['error']['code'] == 'invalid_access_key') {
           $result[0]['title'] = 'Invalid API key given in Alfred Preferences (exchangeratesapi.io)';
           $result[0]['subtitle'] = 'Hint: please edit Workflow Configuration in Alfred Preferences.';
+        }
+        elseif ($j['error']['code'] == 'function_access_restricted') {
+          $result[0]['title'] = 'Error: function_access_restricted';
+          $result[0]['subtitle'] = 'Your exchangesratesapi.io account does not support the desired conversion';
         }
         elseif ($j['error']['code'] == '403') {
           $result[0]['title'] = 'Invalid API key given in Alfred Preferences (getgeoapi.com)';

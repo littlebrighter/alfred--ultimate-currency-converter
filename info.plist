@@ -813,9 +813,12 @@ Please have a look at our [README](https://github.com/littlebrighter/alfred--ult
 
 * This workflow relies on exchange rate data provided by third-party APIs
 * The following services are supported, pick one of them and get an API key:
-    * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key)
-    * [currency.getgeoapi.com](https://currency.getgeoapi.com) → get your API key [here](https://currency.getgeoapi.com/currency-plans/)
+
+    * **[currency.getgeoapi.com](https://currency.getgeoapi.com)** → get your API key [here](https://currency.getgeoapi.com/currency-plans/) (preferred)
+
     * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
+
+    * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key), usage is limited by number of requests per hour, also: precision is limited to few digits
 
 
 ## Prerequisites for users of macOS Monterey 12.0 and later
@@ -1071,6 +1074,56 @@ Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-
 			<key>config</key>
 			<dict>
 				<key>default</key>
+				<string>-1</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>default for currency</string>
+						<string>-1</string>
+					</array>
+					<array>
+						<string>0</string>
+						<string>0</string>
+					</array>
+					<array>
+						<string>1</string>
+						<string>1</string>
+					</array>
+					<array>
+						<string>2</string>
+						<string>2</string>
+					</array>
+					<array>
+						<string>3</string>
+						<string>3</string>
+					</array>
+					<array>
+						<string>4</string>
+						<string>4</string>
+					</array>
+					<array>
+						<string>5</string>
+						<string>5</string>
+					</array>
+					<array>
+						<string>6</string>
+						<string>6</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Choose your preferred number of decimal places for the result (note: conversion is always done with maximum number of significant digit available for selected API service). Or: let the result be displayed with the default number of decimal places for the selected currency.</string>
+			<key>label</key>
+			<string>Decimal places</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>lb2_digits</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
 				<true/>
 				<key>required</key>
 				<false/>
@@ -1088,7 +1141,7 @@ Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.13.1</string>
+	<string>1.13.2</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>

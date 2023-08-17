@@ -696,13 +696,27 @@ class e4Currency {
   }
 
   static function currencyDecimals($currency) {
-    $num_decimals = 2;
-    if (array_key_exists($currency, self::$specialDigits)) {
-      $num_decimals = self::$specialDigits[$currency];
-    }
-    return $num_decimals;
-  }
 
+    $num_decimals = 2;
+
+    if ((getenv('lb2_digits') !== false) && (getenv('lb2_digits') > -2) && (getenv('lb2_digits') < 7)) {
+
+      $digits = getenv('lb2_digits');
+
+      if ($digits == -1) {
+        if (array_key_exists($currency, self::$specialDigits)) {
+          $num_decimals = self::$specialDigits[$currency];
+        }
+      }
+      else {
+        $num_decimals = $digits;
+      }
+
+      return $num_decimals;
+
+    }
+
+  }
 
 }
 

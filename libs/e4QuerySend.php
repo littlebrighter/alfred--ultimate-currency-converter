@@ -48,15 +48,18 @@ class e4QuerySend {
 
       // ---------------------------------------
 
+      fwrite(STDERR, 'https://free.currconv.com/api/v7/convert?'.http_build_query(array(
+        'apiKey' => getenv('lb2_api_key'),
+        'q' => $this->from.'_'.$this->to,
+        'compact' => 'ultra')) . "\n");
+
       $response = $this->app->sendHTTPRequest('https://free.currconv.com/api/v7/convert?'.http_build_query(array(
         'apiKey' => getenv('lb2_api_key'),
         'q' => $this->from.'_'.$this->to,
         'compact' => 'ultra')));
 
-      fwrite(STDERR, print_r($response, true));
       $res_obj = json_decode($response);
-
-      fwrite(STDERR, print_r($res_obj, true));
+      fwrite(STDERR, print_r($res_obj, true) . "\n");
 
       if ($response) {
         $this->responseFromAmount = $this->amount * 1.0;
@@ -72,14 +75,18 @@ class e4QuerySend {
 
     else if ((getenv('lb2_api_service') == 'exchangeratesapi.io')) {
 
+      fwrite(STDERR, 'http:///api.exchangeratesapi.io/v1/latest?'.http_build_query(array(
+        'access_key' => getenv('lb2_api_key'),
+        'base' => $this->from,
+        'symbols' => $this->to)));
+
       $response = $this->app->sendHTTPRequest('http:///api.exchangeratesapi.io/v1/latest?'.http_build_query(array(
         'access_key' => getenv('lb2_api_key'),
         'base' => $this->from,
         'symbols' => $this->to)));
 
       $res_obj = json_decode($response, true);
-
-      fwrite(STDERR, print_r($res_obj, true));
+      fwrite(STDERR, print_r($res_obj, true) . "\n");
 
       if ($res_obj['success'] == 1) {
         $this->responseFromAmount = $this->amount * 1.0;
@@ -95,20 +102,29 @@ class e4QuerySend {
 
     else if ((getenv('lb2_api_service') == 'getgeoapi.com')) {
 
+      fwrite(STDERR, 'https://api.getgeoapi.com/v2/currency/convert?'.http_build_query(array(
+        'api_key' => getenv('lb2_api_key'),
+        'from' => $this->from,
+        'to' => $this->to,
+        'format' => 'json',
+        'amount' => 1000000
+      )));
+
       $response = $this->app->sendHTTPRequest('https://api.getgeoapi.com/v2/currency/convert?'.http_build_query(array(
         'api_key' => getenv('lb2_api_key'),
         'from' => $this->from,
         'to' => $this->to,
-        'format' => 'json')));
+        'format' => 'json',
+        'amount' => 1000000
+      )));
 
       $res_obj = json_decode($response, true);
-
-      fwrite(STDERR, print_r($res_obj, true));
+      fwrite(STDERR, print_r($res_obj, true) . "\n");
 
       if ($res_obj['status'] == 'success') {
         $this->responseFromAmount = $this->amount * 1.0;
         $this->responseFromCurrency = $this->from;
-        $this->responseToAmount = $this->amount * 1.0 * $res_obj['rates'][$this->to]['rate'];
+        $this->responseToAmount = $this->amount * 1.0 * $res_obj['rates'][$this->to]['rate_for_amount'] / 1000000.0;
         $this->responseToCurrency = $this->to;
 
         return $this->valid = true;

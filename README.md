@@ -8,11 +8,11 @@
 
 * The following services are supported, pick one of them and get an API key:
 
-    * [currency.getgeoapi.com](https://currency.getgeoapi.com) → get your API key [here](https://currency.getgeoapi.com/currency-plans/)
+    * [currency.getgeoapi.com](https://currency.getgeoapi.com) → get your API key [here](https://currency.getgeoapi.com/currency-plans/) (preferred)
 
     * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
 
-    * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key), usage is limited by number of requests per hour
+    * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key), usage is limited by number of requests per hour, also: precision is limited to few digits
 
 ## Prerequisites for users of macOS Monterey 12.0 and later
 
@@ -132,7 +132,6 @@ This workflow was heavily inspired and is based partly on the source code of big
 ### References
 
 * <https://www.alfredapp.com/workflows/>
-* <https://free.currencyconverterapi.com/free-api-key>
 * <https://github.com/bigluck/alfred2-currencyconverter>
 
 ### License
