@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>io.erevo.littlebrighter.alfred--ultimate-currency-converter</string>
+	<string>io.erevo.littlebrighter.alfred-ultimate-currency-converter</string>
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
@@ -198,7 +198,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter/releases/latest</string>
+				<string>https://github.com/littlebrighter/alfred-ultimate-currency-converter/releases/latest</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -807,7 +807,7 @@ $PHP_BINARY -f e4WorkflowApp.php -- "set to {query}" "save"</string>
 	<key>readme</key>
 	<string># Ultimate Currency Converter
 
-Please have a look at our [README](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) on GitHub before using for the first time.
+Please have a look at our [README](https://github.com/littlebrighter/alfred-ultimate-currency-converter/) on GitHub before using for the first time.
 
 ## Prerequisites
 
@@ -816,14 +816,14 @@ Please have a look at our [README](https://github.com/littlebrighter/alfred--ult
 
     * **[currency.getgeoapi.com](https://currency.getgeoapi.com)** → get your API key [here](https://currency.getgeoapi.com/currency-plans/) (preferred)
 
-    * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
+    * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred-ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
 
     * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key), usage is limited by number of requests per hour, also: precision is limited to few digits
 
 
 ## Prerequisites for users of macOS Monterey 12.0 and later
 
-Apple no longer ships php bundled with macOS from Monterey 12.0, so you need to install php manually. Our recommendation is to go with homebrew. Alfred has built-in support for php from [homebrew](https://brew.sh). Please see [our GitHub repository](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) if you need support with getting php to run.
+Apple no longer ships php bundled with macOS from Monterey 12.0, so you need to install php manually. Our recommendation is to go with homebrew. Alfred has built-in support for php from [homebrew](https://brew.sh). Please see [our GitHub repository](https://github.com/littlebrighter/alfred-ultimate-currency-converter/) if you need support with getting php to run.
 
 ## Usage
 
@@ -835,7 +835,7 @@ You can trigger this workflow in the Alfred window with the following keyword:
 
 Ultimate Currency Converter accepts simple and complex queries.
 
-The workflow uses two settings. A default **from**-currency and a default **to**-currency. Everytime you start the workflow without explicitely specifying one or both currencies needed for a conversion, Ultimate Currency Converter tries to guess what you intent to do by completing your query with the default ones. See [our GitHub repository](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) for changing default currencies.
+The workflow uses two settings. A default **from**-currency and a default **to**-currency. Everytime you start the workflow without explicitely specifying one or both currencies needed for a conversion, Ultimate Currency Converter tries to guess what you intent to do by completing your query with the default ones. See [our GitHub repository](https://github.com/littlebrighter/alfred-ultimate-currency-converter/) for changing default currencies.
 
 #### Most simple example
 
@@ -853,11 +853,11 @@ You get the idea: look at the first example: no second currency is given, so the
 
 ### More on usage …
 
-Please have a look at our [README](https://github.com/littlebrighter/alfred--ultimate-currency-converter/) on GitHub.
+Please have a look at our [README](https://github.com/littlebrighter/alfred-ultimate-currency-converter/) on GitHub.
 
 ### License
 
-Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-currency-converter/blob/main/LICENSE)</string>
+Released under [MIT License](https://github.com/littlebrighter/alfred-ultimate-currency-converter/blob/main/LICENSE)</string>
 	<key>uidata</key>
 	<dict>
 		<key>009D1F46-8846-44E9-A114-410D7CAC0335</key>
@@ -1143,6 +1143,6 @@ Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-
 	<key>version</key>
 	<string>1.13.2</string>
 	<key>webaddress</key>
-	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
+	<string>https://github.com/littlebrighter/alfred-ultimate-currency-converter</string>
 </dict>
 </plist>

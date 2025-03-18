@@ -10,7 +10,7 @@
 
     * [currency.getgeoapi.com](https://currency.getgeoapi.com) → get your API key [here](https://currency.getgeoapi.com/currency-plans/) (preferred)
 
-    * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred--ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
+    * [exchangeratesapi.io](https://exchangeratesapi.io) → get your API key [here](https://manage.exchangeratesapi.io/signup/free) (please also see [issue #8](https://github.com/littlebrighter/alfred-ultimate-currency-converter/issues/8) for recent changes restricting the free plan of this API)
 
     * [currencyconverterapi.com](https://currencyconverterapi.com) → get your API key from [here](https://free.currencyconverterapi.com/free-api-key), usage is limited by number of requests per hour, also: precision is limited to few digits
 
@@ -35,7 +35,7 @@ in Terminal.app
 
 Installation is as easy as downloading the workflow and double-clicking it to call Alfred.
 
-In order to do so, head over to the [latest release](https://github.com/littlebrighter/alfred--ultimate-currency-converter/releases/latest) and fetch the `Ultimate.Currency.Converter.v*.alfredworkflow` file, e.g. download it to your Mac. Double-click the file and you will be guided to Alfred.app which asks you, if you want to install this workflow.
+In order to do so, head over to the [latest release](../../releases/latest) and fetch the `Ultimate.Currency.Converter.v*.alfredworkflow` file, e.g. download it to your Mac. Double-click the file and you will be guided to Alfred.app which asks you, if you want to install this workflow.
 
 ## Usage
 
@@ -136,4 +136,4 @@ This workflow was heavily inspired and is based partly on the source code of big
 
 ### License
 
-Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-currency-converter/blob/main/LICENSE)
+Released under [MIT License](https://github.com/littlebrighter/alfred-ultimate-currency-converter/blob/main/LICENSE)
