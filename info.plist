@@ -179,7 +179,7 @@
 	<key>createdby</key>
 	<string>Little Brighter</string>
 	<key>description</key>
-	<string>The best Alfred Workflow for Converting Currencies. Period.</string>
+	<string>The best Alfred Workflow for Converting Currencies, period.</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -246,8 +246,12 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  echo "Failed to find PHP binary. Any use of to and from setting will fail. Check for PHP installation path."
   exit
 fi
+
+  exit
+
 
 $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 				<key>scriptargtype</key>
@@ -514,6 +518,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  echo "Failed to find PHP binary. Did you install PHP through homebrew? Check to verify the correct binary path."
   exit
 fi
 
@@ -1141,7 +1146,7 @@ Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.13.2</string>
+	<string>1.13.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>

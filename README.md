@@ -1,4 +1,4 @@
-# The best Alfred Workflow for Converting Currencies. Period.
+# The best Alfred Workflow for Converting Currencies, period.
 
 <img src="https://littlebrighter.erevo.io/alfred/img/ultimate-currency-converter/workflow.png" width="764">
 
