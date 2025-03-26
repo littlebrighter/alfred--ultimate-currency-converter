@@ -87,6 +87,14 @@ The query string is quite flexible. Look at the following examples and use whate
   * `currency to GBP from 23€` → converts 23 EUR to GBP
   * `currency to GBP 23€` → converts 23 EUR to GBP
 
+####  Shorter Keyword?
+
+Not exactly a feature, but more like a ...
+> [!TIP]
+> If you find `currency` to long to enter, it should be noted that you can of course change and shorten the keyword(s) according to your personal taste, by double-clicking the related Script filter on the very left in Alfred’s Workflow Editor:
+<img width="579" alt="image" src="https://github.com/user-attachments/assets/c63b9195-5c18-40de-8b3b-3f8fd544f012" />
+
+
 ### Additional Features
 
 #### Integrated Knowledge Base
