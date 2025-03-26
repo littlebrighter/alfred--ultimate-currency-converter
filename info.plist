@@ -397,6 +397,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  echo Failed to find PHP binary. Any use of to and from setting will fail. Check for PHP installation path.
   exit
 fi
 
@@ -460,6 +461,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
+  echo "Failed to find PHP binary. Did you install PHP through homebrew? Check to verify the correct binary path."
   exit
 fi
 
