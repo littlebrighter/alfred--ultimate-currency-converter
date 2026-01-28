@@ -250,9 +250,6 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
   exit
 fi
 
-  exit
-
-
 $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -289,7 +286,7 @@ $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 						<key>matchstring</key>
 						<string>--download-update</string>
 						<key>outputlabel</key>
-						<string></string>
+						<string>GitHub</string>
 						<key>uid</key>
 						<string>A2C1F654-E4BF-4D81-8BB2-3C158C8F8E66</string>
 					</dict>
@@ -303,13 +300,13 @@ $PHP_BINARY -f ./e4WorkflowApp.php -- "{query}" "default"</string>
 						<key>matchstring</key>
 						<string>--get-api-key</string>
 						<key>outputlabel</key>
-						<string></string>
+						<string>API</string>
 						<key>uid</key>
 						<string>ADC5063D-EB4C-4CDA-92BA-695DCA0A1C0D</string>
 					</dict>
 				</array>
 				<key>elselabel</key>
-				<string></string>
+				<string>Clipboard</string>
 				<key>hideelse</key>
 				<false/>
 			</dict>
@@ -397,7 +394,7 @@ if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
 fi
 
 if ! command -v $PHP_BINARY &amp;&gt; /dev/null; then
-  echo Failed to find PHP binary. Any use of to and from setting will fail. Check for PHP installation path.
+  echo "Failed to find PHP binary. Any use of to and from setting will fail. Check for PHP installation path."
   exit
 fi
 
@@ -1148,7 +1145,7 @@ Released under [MIT License](https://github.com/littlebrighter/alfred--ultimate-
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.13.3</string>
+	<string>1.13.4</string>
 	<key>webaddress</key>
 	<string>https://github.com/littlebrighter/alfred--ultimate-currency-converter</string>
 </dict>
