@@ -324,7 +324,6 @@ class e4WorkflowApp {
       file_put_contents($cacheFileName, $response);
     }
 
-    curl_close($ch);
     return $response;
   }
 
